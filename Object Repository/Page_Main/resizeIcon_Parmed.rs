@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>resizeIcon_Parmed</name>
+   <tag></tag>
+   <elementGuidId>af82c6ce-0878-4daa-bad6-1d63d9e0de33</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>span.react-resizable-handle.react-resizable-handle-se</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>/html/body/div[1]/div/main/div/div/div[${number}]/div/span</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>span</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>react-resizable-handle react-resizable-handle-se</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;__next&quot;)/div[@class=&quot;h-screen w-screen flex flex-col&quot;]/main[@class=&quot;flex flex-1 flex-col w-auto m-0 bg-gray-200&quot;]/div[@class=&quot;sc-gsDJrp dYIxYm&quot;]/div[@class=&quot;react-grid-layout&quot;]/div[@class=&quot;sc-dkPtyc gnliEL react-grid-item react-draggable cssTransforms react-resizable&quot;]/div[@class=&quot;sc-hKwCoD fgBDdK&quot;]/span[@class=&quot;react-resizable-handle react-resizable-handle-se&quot;]</value>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='__next']/div/main/div/div/div/div/span</value>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div/span</value>
+   </webElementXpaths>
+</WebElementEntity>
