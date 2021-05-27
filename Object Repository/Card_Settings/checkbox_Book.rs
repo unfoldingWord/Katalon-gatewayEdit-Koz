@@ -6,6 +6,10 @@
    <elementGuidId>495461ee-0660-4b09-829a-17bec08c7dec</elementGuidId>
    <selectorCollection>
       <entry>
+         <key>CSS</key>
+         <value>input[name=&quot;Book&quot;]</value>
+      </entry>
+      <entry>
          <key>BASIC</key>
          <value>//*[@name = 'Book' and @type = 'checkbox']</value>
       </entry>
@@ -13,12 +17,8 @@
          <key>XPATH</key>
          <value>//input[@name='Book']</value>
       </entry>
-      <entry>
-         <key>CSS</key>
-         <value>input[name=&quot;Book&quot;]</value>
-      </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>true</useRalativeImagePath>
    <webElementProperties>
       <isSelected>false</isSelected>

@@ -28,27 +28,26 @@ columns = ['Book', 'Chapter','Verse', 'Reference','ID','Occurrence', 'SupportRef
 
 names = columns
 
-displayStates(names)
+found = WebUI.verifyElementPresent(findTestObject('Card_Settings/checkbox_Quote'), 1, FailureHandling.OPTIONAL)
 
-for (int i : (0..3)) {
-	
-	println('Testing ' + columns[i])
+state = WebUI.verifyElementVisible(findTestObject('Card_Settings/checkbox_Quote_Checked'), FailureHandling.OPTIONAL)
 
-	WebUI.uncheck(findTestObject('Object Repository/Card_Settings/checkbox_Parmed', [('name') : columns[i]]))
+println('Found = ' + found + ' and checked is ' + state)
 
-	displayStates(names)	
-}
+WebUI.click(findTestObject('Card_Settings/checkbox_Quote'))
 
-for (int i : (0..3)) {
+found = WebUI.verifyElementPresent(findTestObject('Card_Settings/checkbox_Quote'), 1, FailureHandling.OPTIONAL)
 
-	WebUI.check(findTestObject('Object Repository/Card_Settings/checkbox_Parmed', [('name') : columns[i]]))
+state = WebUI.verifyElementVisible(findTestObject('Card_Settings/checkbox_Quote_Checked'), FailureHandling.OPTIONAL)
 
-}
+println('Found = ' + found + ' and checked is ' + state)
 
-for (int i = 0; i<5; i+=2) {
-	WebUI.uncheck(findTestObject('Object Repository/Card_Settings/checkbox_Parmed', [('name') : columns[i]]))
-	
-		displayStates(names)
+return false
+
+done = false
+
+while (!done) {
+	displayStates(names)
 }
 
 WebUI.closeBrowser()
@@ -62,18 +61,7 @@ def displayStates(names) {
 	
 	JOptionPane.showMessageDialog(null,
 		msg,
-		"Verify Checked",
+		"Update checkboxes and click OK",
 		JOptionPane.PLAIN_MESSAGE);
 	
-	msg = ''
-	names.each { name ->
-		state = WebUI.verifyElementNotChecked(findTestObject('Card_Settings/checkbox_' + name), 1, FailureHandling.OPTIONAL)
-		msg += name + ' not checked status is ' + state + '\n'
-	}
-	
-	JOptionPane.showMessageDialog(null,
-		msg,
-		"Verify Not Checked",
-		JOptionPane.PLAIN_MESSAGE);
-
 }

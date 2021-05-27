@@ -54,6 +54,30 @@ states.each { name, state ->
 	println('Column ' + name + ' checked is ' + state)
 }
 
+/////////////////
+myBrowser = CustomKeywords.'unfoldingWord_Keywords.GetTestingConfig.getBrowserAndVersion'()
+
+if (system.contains('Mac') && !myBrowser.contains('chrome')) {
+	println('Bypassed testing multiple sessions in Firefox on Mac')
+	return false
+}
+// Open a second browser tab
+if (myBrowser.contains('chrome')) {
+	WebUI.executeJavaScript('window.open();', [])
+} else if (system.contains('Windows')) {
+	WebUI.sendKeys(findTestObject('Page_tCC translationNotes/tNText_GLOutlinePoint1'), Keys.chord(Keys.CONTROL, 't'))
+}
+
+currentWindow = WebUI.getWindowIndex()
+
+//Go to new tab
+WebUI.switchToWindowIndex(currentWindow + 1)
+
+// Navigate to tCC
+WebUI.navigateToUrl(GlobalVariable.url)
+
+/////////////////////
+
 GlobalVariable.scriptRunning = false
 
 //WebUI.closeBrowser()

@@ -10,11 +10,15 @@
          <value>input[name=&quot;ID&quot;]</value>
       </entry>
       <entry>
+         <key>BASIC</key>
+         <value>//*[@name = 'ID' and @type = 'checkbox']</value>
+      </entry>
+      <entry>
          <key>XPATH</key>
          <value>//input[@name='ID']</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>BASIC</selectorMethod>
+   <selectorMethod>XPATH</selectorMethod>
    <useRalativeImagePath>true</useRalativeImagePath>
    <webElementProperties>
       <isSelected>false</isSelected>

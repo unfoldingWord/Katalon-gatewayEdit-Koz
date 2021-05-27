@@ -10,11 +10,15 @@
          <value>input[name=&quot;Quote&quot;]</value>
       </entry>
       <entry>
+         <key>BASIC</key>
+         <value>//*[@name = 'Quote' and @type = 'checkbox']</value>
+      </entry>
+      <entry>
          <key>XPATH</key>
-         <value>//input[@name='Quote']</value>
+         <value>/html/body/div[2]/div[3]/div/div/div[3]/div[3]/div/div/label[8]/span[1]/span[1]/input</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>BASIC</selectorMethod>
+   <selectorMethod>XPATH</selectorMethod>
    <useRalativeImagePath>true</useRalativeImagePath>
    <webElementProperties>
       <isSelected>false</isSelected>

@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>checkbox_Occurrence</name>
+   <name>input_xPath_Columns_Chapter</name>
    <tag></tag>
-   <elementGuidId>6dba48cf-326c-4f20-8e93-6f6ce7ead1f9</elementGuidId>
+   <elementGuidId>2f2b1e05-78d4-4a5f-ae39-b1773d56306c</elementGuidId>
    <selectorCollection>
       <entry>
          <key>CSS</key>
-         <value>input[name=&quot;Occurrence&quot;]</value>
-      </entry>
-      <entry>
-         <key>BASIC</key>
-         <value>//*[@name = 'Occurrence' and @type = 'checkbox']</value>
+         <value>input[name=&quot;Chapter&quot;]</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//input[@name='Occurrence']</value>
+         <value>/html/body/div[2]/div[3]/div/div/div[3]/div[3]/div/div/label[2]/span[1]/span[1]/input</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -32,14 +28,14 @@
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>jss172</value>
+      <value>jss76</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>name</name>
       <type>Main</type>
-      <value>Occurrence</value>
+      <value>Chapter</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -60,20 +56,20 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>/html[1]/body[1]/div[@class=&quot;MuiDialog-root&quot;]/div[@class=&quot;MuiDialog-container MuiDialog-scrollPaper&quot;]/div[@class=&quot;MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm react-draggable&quot;]/div[@class=&quot;sc-bdfBwQ cIKpxU jss153&quot;]/div[@class=&quot;jss40 undefined&quot;]/div[@class=&quot;jss156&quot;]/div[@class=&quot;jss159&quot;]/div[@class=&quot;jss161&quot;]/label[@class=&quot;MuiFormControlLabel-root jss160&quot;]/span[@class=&quot;MuiButtonBase-root MuiIconButton-root jss169 MuiCheckbox-root jss184 MuiCheckbox-colorPrimary jss170 Mui-checked jss185 MuiIconButton-colorPrimary&quot;]/span[@class=&quot;MuiIconButton-label&quot;]/input[@class=&quot;jss172&quot;]</value>
+      <value>/html[1]/body[1]/div[@class=&quot;MuiDialog-root&quot;]/div[@class=&quot;MuiDialog-container MuiDialog-scrollPaper&quot;]/div[@class=&quot;MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm react-draggable&quot;]/div[@class=&quot;sc-bdnxRM jvCTkj jss57&quot;]/div[@class=&quot;jss37 undefined&quot;]/div[@class=&quot;jss60&quot;]/div[@class=&quot;jss63&quot;]/div[@class=&quot;jss65&quot;]/label[@class=&quot;MuiFormControlLabel-root jss64&quot;]/span[@class=&quot;MuiButtonBase-root MuiIconButton-root jss73 MuiCheckbox-root jss88 MuiCheckbox-colorPrimary jss74 Mui-checked jss89 MuiIconButton-colorPrimary&quot;]/span[@class=&quot;MuiIconButton-label&quot;]/input[@class=&quot;jss76&quot;]</value>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@name='Occurrence']</value>
+      <value>//input[@name='Chapter']</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//label[6]/span/span/input</value>
+      <value>//label[2]/span/span/input</value>
    </webElementXpaths>
 </WebElementEntity>

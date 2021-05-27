@@ -57,23 +57,15 @@ def displayStates(names) {
 	msg = ''
 	names.each { name ->
 		state = WebUI.verifyElementChecked(findTestObject('Card_Settings/checkbox_' + name), 1, FailureHandling.OPTIONAL)
-		msg += name + ' checked status is ' + state + '\n'
+		if (state) {
+			msg += name + ' is checked\n'
+		} else {
+			msg += name + ' is NOT checked\n'
+		}
 	}
 	
 	JOptionPane.showMessageDialog(null,
 		msg,
-		"Verify Checked",
+		"Checkbox States",
 		JOptionPane.PLAIN_MESSAGE);
-	
-	msg = ''
-	names.each { name ->
-		state = WebUI.verifyElementNotChecked(findTestObject('Card_Settings/checkbox_' + name), 1, FailureHandling.OPTIONAL)
-		msg += name + ' not checked status is ' + state + '\n'
-	}
-	
-	JOptionPane.showMessageDialog(null,
-		msg,
-		"Verify Not Checked",
-		JOptionPane.PLAIN_MESSAGE);
-
 }

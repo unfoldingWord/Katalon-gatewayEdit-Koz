@@ -25,6 +25,7 @@ WebUI.click(findTestObject('Object Repository/Page_Main/menu_card_Parmed', [('re
 WebUI.delay(1)
 
 columns = ['Book', 'Chapter','Verse', 'Reference','ID','Occurrence', 'SupportReference', 'Quote', 'Tags', 'Note']
+//columns = ['Show Columns_Book', 'Chapter','Verse', 'Reference','ID','Occurrence', 'SupportReference', 'Quote', 'Tags', 'Note']
 
 names = columns
 
@@ -34,19 +35,19 @@ for (int i : (0..3)) {
 	
 	println('Testing ' + columns[i])
 
-	WebUI.uncheck(findTestObject('Object Repository/Card_Settings/checkbox_Parmed', [('name') : columns[i]]))
+	WebUI.uncheck(findTestObject('Card_Settings/checkbox_' + names[i]))
 
 	displayStates(names)	
 }
 
 for (int i : (0..3)) {
 
-	WebUI.check(findTestObject('Object Repository/Card_Settings/checkbox_Parmed', [('name') : columns[i]]))
+	WebUI.check(findTestObject('Card_Settings/checkbox_' + names[i]))
 
 }
 
 for (int i = 0; i<5; i+=2) {
-	WebUI.uncheck(findTestObject('Object Repository/Card_Settings/checkbox_Parmed', [('name') : columns[i]]))
+	WebUI.uncheck(findTestObject('Card_Settings/checkbox_' + names[i]))
 	
 		displayStates(names)
 }

@@ -17,6 +17,13 @@ import internal.GlobalVariable as GlobalVariable
 
 import javax.swing.JOptionPane;
 
+import groovy.time.*
+
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import com.kms.katalon.core.webui.driver.DriverFactory
+
 
 WebUI.callTestCase(findTestCase('Components/LogIn'), [:])
 
@@ -24,31 +31,31 @@ WebUI.click(findTestObject('Object Repository/Page_Main/menu_card_Parmed', [('re
 
 WebUI.delay(1)
 
-columns = ['Book', 'Chapter','Verse', 'Reference','ID','Occurrence', 'SupportReference', 'Quote', 'Tags', 'Note']
+(columns, states, map) = CustomKeywords.'unfoldingWordKeywords.Work_with_Settings_Card.getColumnsList'('states')
 
-names = columns
+done = false
 
-displayStates(names)
-
-for (int i : (0..3)) {
+while (!done) {
 	
-	println('Testing ' + columns[i])
-
-	WebUI.uncheck(findTestObject('Object Repository/Card_Settings/checkbox_Parmed', [('name') : columns[i]]))
-
-	displayStates(names)	
-}
-
-for (int i : (0..3)) {
-
-	WebUI.check(findTestObject('Object Repository/Card_Settings/checkbox_Parmed', [('name') : columns[i]]))
-
-}
-
-for (int i = 0; i<5; i+=2) {
-	WebUI.uncheck(findTestObject('Object Repository/Card_Settings/checkbox_Parmed', [('name') : columns[i]]))
+	msg = ''
 	
-		displayStates(names)
+	(columns, states, map) = CustomKeywords.'unfoldingWordKeywords.Work_with_Settings_Card.getColumnsList'('states')
+	
+	map.each { column, state ->
+		
+		msg += column + ' checked status is ' + state + '\n'
+		
+		if (column == 'Note' && !state) {
+			done = true
+		}
+		
+	}
+
+	JOptionPane.showMessageDialog(null,
+	msg,
+	"Update checkboxes and click OK. Uncheck Note to END",
+	JOptionPane.PLAIN_MESSAGE);
+	
 }
 
 WebUI.closeBrowser()
@@ -60,20 +67,22 @@ def displayStates(names) {
 		msg += name + ' checked status is ' + state + '\n'
 	}
 	
-	JOptionPane.showMessageDialog(null,
-		msg,
-		"Verify Checked",
-		JOptionPane.PLAIN_MESSAGE);
+	state = WebUI.verifyElementChecked(findTestObject('Card_Settings/switch_Markdown_View'), 1, FailureHandling.OPTIONAL)
+	msg += 'markdown switch' + ' checked status is ' + state + '\n'
 	
-	msg = ''
-	names.each { name ->
-		state = WebUI.verifyElementNotChecked(findTestObject('Card_Settings/checkbox_' + name), 1, FailureHandling.OPTIONAL)
-		msg += name + ' not checked status is ' + state + '\n'
-	}
 	
 	JOptionPane.showMessageDialog(null,
 		msg,
-		"Verify Not Checked",
+		"Update checkboxes and click OK",
 		JOptionPane.PLAIN_MESSAGE);
-
+	
 }
+
+def getColumnsList() {
+	
+		def tObj = findTestObject('Card_Settings/div_Column_Checkboxes')
+		println "${tObj.findPropertyValue('xpath')}"
+		def xPath = ${tObj.findPropertyValue('xpath')}
+		println(xPath)
+	}
+

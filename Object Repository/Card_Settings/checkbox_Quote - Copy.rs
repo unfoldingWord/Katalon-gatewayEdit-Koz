@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>checkbox_Occurrence</name>
+   <name>checkbox_Quote - Copy</name>
    <tag></tag>
-   <elementGuidId>6dba48cf-326c-4f20-8e93-6f6ce7ead1f9</elementGuidId>
+   <elementGuidId>d6a9e692-f80d-48df-b108-bea8eb7b98e2</elementGuidId>
    <selectorCollection>
       <entry>
          <key>CSS</key>
-         <value>input[name=&quot;Occurrence&quot;]</value>
+         <value>input[name=&quot;Quote&quot;]</value>
       </entry>
       <entry>
          <key>BASIC</key>
-         <value>//*[@name = 'Occurrence' and @type = 'checkbox']</value>
+         <value>//*[@name = 'Quote' and @type = 'checkbox']</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//input[@name='Occurrence']</value>
+         <value>//input[@name='Quote']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -39,7 +39,7 @@
       <matchCondition>equals</matchCondition>
       <name>name</name>
       <type>Main</type>
-      <value>Occurrence</value>
+      <value>Quote</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -67,13 +67,13 @@
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@name='Occurrence']</value>
+      <value>//input[@name='Quote']</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//label[6]/span/span/input</value>
+      <value>//label[8]/span/span/input</value>
    </webElementXpaths>
 </WebElementEntity>

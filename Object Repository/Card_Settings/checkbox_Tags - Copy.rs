@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>checkbox_Occurrence</name>
+   <name>checkbox_Tags - Copy</name>
    <tag></tag>
-   <elementGuidId>6dba48cf-326c-4f20-8e93-6f6ce7ead1f9</elementGuidId>
+   <elementGuidId>6ac72baa-9e17-4260-98c0-a4f392812ad9</elementGuidId>
    <selectorCollection>
       <entry>
          <key>CSS</key>
-         <value>input[name=&quot;Occurrence&quot;]</value>
-      </entry>
-      <entry>
-         <key>BASIC</key>
-         <value>//*[@name = 'Occurrence' and @type = 'checkbox']</value>
+         <value>input[name=&quot;Tags&quot;]</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//input[@name='Occurrence']</value>
+         <value>//input[@name='Tags']</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>true</useRalativeImagePath>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -39,7 +35,7 @@
       <matchCondition>equals</matchCondition>
       <name>name</name>
       <type>Main</type>
-      <value>Occurrence</value>
+      <value>Tags</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -67,13 +63,13 @@
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@name='Occurrence']</value>
+      <value>//input[@name='Tags']</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//label[6]/span/span/input</value>
+      <value>//label[9]/span/span/input</value>
    </webElementXpaths>
 </WebElementEntity>
