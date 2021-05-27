@@ -31,8 +31,6 @@ WebUI.click(findTestObject('Object Repository/Page_Main/menu_card_Parmed', [('re
 
 WebUI.delay(1)
 
-(columns, states, map) = CustomKeywords.'unfoldingWordKeywords.Work_with_Settings_Card.getColumnsList'('states')
-
 done = false
 
 while (!done) {
