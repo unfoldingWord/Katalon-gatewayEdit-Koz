@@ -60,29 +60,3 @@ while (!done) {
 
 WebUI.closeBrowser()
 
-def displayStates(names) {
-	msg = ''
-	names.each { name ->
-		state = WebUI.verifyElementChecked(findTestObject('Card_Settings/checkbox_' + name), 1, FailureHandling.OPTIONAL)
-		msg += name + ' checked status is ' + state + '\n'
-	}
-	
-	state = WebUI.verifyElementChecked(findTestObject('Card_Settings/switch_Markdown_View'), 1, FailureHandling.OPTIONAL)
-	msg += 'markdown switch' + ' checked status is ' + state + '\n'
-	
-	
-	JOptionPane.showMessageDialog(null,
-		msg,
-		"Update checkboxes and click OK",
-		JOptionPane.PLAIN_MESSAGE);
-	
-}
-
-def getColumnsList() {
-	
-		def tObj = findTestObject('Card_Settings/div_Column_Checkboxes')
-		println "${tObj.findPropertyValue('xpath')}"
-		def xPath = ${tObj.findPropertyValue('xpath')}
-		println(xPath)
-	}
-
