@@ -1,4 +1,4 @@
-package unfoldingWordKeywords
+package unfoldingWord_Keywords
 
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
@@ -45,7 +45,7 @@ public class Scripture_Card {
 
 	// Returns arrays containing all of the words and the words' highlight statuses of the text on a scripture card
 	// Prerequisites:
-	// CustomKeywords.'unfoldingWordKeywords.Resources_Layout.getCardMap'() to populate the map of cards on the page
+	// CustomKeywords.'unfoldingWord_Keywords.Resources_Layout.getCardMap'() to populate the map of cards on the page
 
 	// Input parameter 'cardID' can either be the number of the scripture card or unique partial text of the scripture card title (e.g. 'Leteral Text')
 	def getScriptureWordsandHighlights(cardID) {

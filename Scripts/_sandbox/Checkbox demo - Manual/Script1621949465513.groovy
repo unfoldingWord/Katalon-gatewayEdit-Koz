@@ -37,7 +37,7 @@ WebUI.click(findTestObject('Object Repository/Card_Settings/checkbox_Parmed', [(
 
 timeStart = new Date()
 
-(columns, states, map) = CustomKeywords.'unfoldingWordKeywords.Work_with_Settings_Card.getColumnsList'('states')
+(columns, states, map) = CustomKeywords.'unfoldingWord_Keywords.Work_with_Settings_Card.getColumnsList'('states')
 
 timeEnd = new Date()
 
@@ -60,9 +60,9 @@ pcts = [50,60,70,80,90,100,110,120,130,140,150]
 
 pcts.each { pct ->
 	
-	CustomKeywords.'unfoldingWordKeywords.Work_with_Settings_Card.setFontSize'(pct)
+	CustomKeywords.'unfoldingWord_Keywords.Work_with_Settings_Card.setFontSize'(pct)
 	
-	value = CustomKeywords.'unfoldingWordKeywords.Work_with_Settings_Card.getFontSize'()
+	value = CustomKeywords.'unfoldingWord_Keywords.Work_with_Settings_Card.getFontSize'()
 	
 	println('Font size is ' + value)
 		

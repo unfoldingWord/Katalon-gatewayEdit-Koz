@@ -26,7 +26,7 @@ WebUI.waitForElementPresent(findTestObject('Object Repository/Card_tW_List/text_
 
 //WebUI.delay(5)
 
-(words, occurrences, quotes) = CustomKeywords.'unfoldingWordKeywords.TWL_Card.getTWLValues'()
+(words, occurrences, quotes) = CustomKeywords.'unfoldingWord_Keywords.TWL_Card.getTWLValues'()
 
 println(words)
 println(occurrences)

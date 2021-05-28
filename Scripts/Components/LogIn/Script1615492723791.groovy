@@ -16,11 +16,21 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.openBrowser('')
+try {
+	WebUI.navigateToUrl(GlobalVariable.url)
+	open = true
+} catch(BrowserNotOpenedException){
+	open = false
+}
+	
+if (!open) {
+	
+	WebUI.openBrowser('')
+
+	WebUI.navigateToUrl(GlobalVariable.url)
+}
 
 WebUI.maximizeWindow()
-
-WebUI.navigateToUrl(GlobalVariable.url)
 
 GlobalVariable.version = WebUI.getText(findTestObject('Blue_Banners/text_Version'))
 
@@ -47,19 +57,25 @@ WebUI.setEncryptedText(findTestObject('Page_Login/input_Password'), GlobalVariab
 
 WebUI.click(findTestObject('Page_Login/button_Login'))
 
-println('Selecting ' + myOrganization)
-WebUI.click(findTestObject('Page_Account_Settings/list_Organization'))
+if (WebUI.verifyElementPresent(findTestObject('Page_Account_Settings/text_Account Setup'), 1, FailureHandling.OPTIONAL)) {
 
-WebUI.click(findTestObject('Page_Account_Settings/listOrg_Option_Parmed', [('organization') : myOrganization]))
-
-println('Selecting ' + myLanguage)
-WebUI.click(findTestObject('Page_Account_Settings/list_Language'))
-
-WebUI.click(findTestObject('Page_Account_Settings/listLang_Option_Parmed', [('langCode') : myLanguage]))
-
-WebUI.click(findTestObject('Page_Account_Settings/button_Save and Continue'))
-
-WebUI.waitForElementPresent(findTestObject('Card_Scripture/menu_Scripture_Card_0'), 5)
+	println('Selecting ' + myOrganization)
+	WebUI.click(findTestObject('Page_Account_Settings/list_Organization'))
+	
+	WebUI.click(findTestObject('Page_Account_Settings/listOrg_Option_Parmed', [('organization') : myOrganization]))
+	
+	println('Selecting ' + myLanguage)
+	WebUI.click(findTestObject('Page_Account_Settings/list_Language'))
+	
+	WebUI.click(findTestObject('Page_Account_Settings/listLang_Option_Parmed', [('langCode') : myLanguage]))
+	
+	WebUI.click(findTestObject('Page_Account_Settings/button_Save and Continue'))
+	
+	WebUI.waitForElementPresent(findTestObject('Card_Scripture/menu_Scripture_Card_0'), 5)
+	
+} else {
+	println('Bypassing account settings page')
+}
 
 if (WebUI.verifyElementPresent(findTestObject('Card_tN/text_tN_Reference'), 1, FailureHandling.OPTIONAL)) {
 	GlobalVariable.tNFormat = 'New'

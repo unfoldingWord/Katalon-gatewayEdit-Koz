@@ -15,46 +15,8 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 
-import javax.swing.JOptionPane;
+WebUI.click(findTestObject('Blue_Banners/button_Open_Drawer'), FailureHandling.OPTIONAL)
 
-import groovy.time.*
-
-import org.openqa.selenium.By
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
-import com.kms.katalon.core.webui.driver.DriverFactory
-
-
-WebUI.callTestCase(findTestCase('Components/LogIn'), [:])
-
-WebUI.click(findTestObject('Object Repository/Page_Main/menu_card_Parmed', [('resource') : 'tn']))
-
-WebUI.delay(1)
-
-done = false
-
-while (!done) {
-	
-	msg = ''
-	
-	(columns, states, map) = CustomKeywords.'unfoldingWord_Keywords.Work_with_Settings_Card.getColumnsList'('states')
-	
-	map.each { column, state ->
-		
-		msg += column + ' checked status is ' + state + '\n'
-		
-		if (column == 'Note' && !state) {
-			done = true
-		}
-		
-	}
-
-	JOptionPane.showMessageDialog(null,
-	msg,
-	"Update checkboxes and click OK. Uncheck Note to END",
-	JOptionPane.PLAIN_MESSAGE);
-	
+if (WebUI.verifyElementPresent(findTestObject('Drawer/button_Logout'), 3)) {
+	WebUI.click(findTestObject('Drawer/button_Logout'))
 }
-
-WebUI.closeBrowser()
-

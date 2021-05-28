@@ -1,4 +1,4 @@
-package unfoldingWordKeywords
+package unfoldingWord_Keywords
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -37,7 +37,7 @@ import com.kms.katalon.core.mobile.helper.MobileElementCommonHelper
 import com.kms.katalon.core.util.KeywordUtil
 
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
-import internal.GlobalVariable as GlobalVariable
+//import internal.GlobalVariable as GlobalVariable
 
 
 

@@ -18,7 +18,7 @@ import internal.GlobalVariable as GlobalVariable
 // Test to see that all card titles can be retrieved and card menus can be opened by use of the card map
 WebUI.callTestCase(findTestCase('Components/LogIn'), [:])
 
-retValue = CustomKeywords.'unfoldingWordKeywords.Resources_Layout.getCardMap'()
+retValue = CustomKeywords.'unfoldingWord_Keywords.Resources_Layout.getCardMap'()
 
 println(retValue + 'cards were found')
 

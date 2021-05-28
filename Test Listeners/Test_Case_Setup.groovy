@@ -32,12 +32,12 @@ class Test_Case_Setup {
 	@BeforeTestCase
 	def sampleBeforeTestCase(TestCaseContext testCaseContext) {
 		println('setup start')
-		GlobalVariable.systemOS = CustomKeywords.'unfoldingWordKeywords.GetTestingConfig.getOperatingSystem'()
+		GlobalVariable.systemOS = CustomKeywords.'unfoldingWord_Keywords.GetTestingConfig.getOperatingSystem'()
 		GlobalVariable.tcMessages = []
 		def executionProfile = RC.getExecutionProfile()
 		KeywordUtil.logInfo('Execution profile is ' + executionProfile)
 		if (GlobalVariable.systemOS == '' || GlobalVariable.systemOS == null) {
-			GlobalVariable.systemOS = CustomKeywords.'unfoldingWordKeywords.GetTestingConfig.getOperatingSystem'()
+			GlobalVariable.systemOS = CustomKeywords.'unfoldingWord_Keywords.GetTestingConfig.getOperatingSystem'()
 		}
 		println('setup mid')
 		if (GlobalVariable.pcUser == '' || GlobalVariable.pcUser == null) {

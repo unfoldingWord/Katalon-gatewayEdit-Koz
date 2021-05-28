@@ -1,4 +1,4 @@
-package unfoldingWordKeywords
+package unfoldingWord_Keywords
 
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
@@ -25,25 +25,23 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import com.kms.katalon.core.webui.driver.DriverFactory
 
-public class Work_with_Settings_Card {
+public class SAVED_Work_with_Settings_Card {
 	@Keyword
-	// Returns the font size setting from the open settings card, or 'false' if the font size element could not be found
 	def getFontSize() {
 		println('Getting font size')
 
-		def retCode = false
+		def retValue = false
 		if (WebUI.verifyElementPresent(findTestObject('Card_Settings/span_Font_Size'), 1, FailureHandling.OPTIONAL)) {
 
 			def pctStr = WebUI.getAttribute(findTestObject('Card_Settings/span_Font_Size'), "aria-valuenow")
 
-			retCode = Integer.parseInt(pctStr)
+			retValue = Integer.parseInt(pctStr)
 		}
 
-		return retCode
+		return retValue
 	}
 
 	@Keyword
-	// Sets the font size to the specified value (%) on the open settings card. Return 'false' if an invalid value was specified.
 	def setFontSize(int value) {
 		println('Setting font size to ' + value)
 
@@ -57,42 +55,18 @@ public class Work_with_Settings_Card {
 
 		def max = Integer.parseInt(maxStr)
 
-		if (min < value && value < max) {
+		def sliderWidth = WebUI.getElementWidth(findTestObject('Card_Settings/slider_Font_Size'))
 
-			def sliderWidth = WebUI.getElementWidth(findTestObject('Card_Settings/slider_Font_Size'))
+		def diff = (value - min)/100
 
-			def diff = (value - min)/100
+		int offset = sliderWidth * (diff - 0.5)
 
-			int offset = sliderWidth * (diff - 0.5)
-
-			WebUI.clickOffset(findTestObject('Card_Settings/slider_Font_Size'), offset, 0)
-
-			retCode = true
-
-		} else {
-
-			retCode = false
-		}
-
-		return retCode
-
+		WebUI.clickOffset(findTestObject('Card_Settings/slider_Font_Size'), offset, 0)
 	}
 
 	@Keyword
-	// Returns a list of columns on the open settings card. 
-	// Also return a list of states and map of [column:state] if 'states' is passed in
-	def getColumnsList(def option = '') {
-
-		option = option.toLowerCase()
-
-		def getStates
-		def msg = ''
-		if (option.contains('state')) {
-			getStates = true
-			msg = ' including states'
-		}
-
-		println('Getting columns list' + msg)
+	def getColumnsList() {
+		println('Getting columns list')
 
 		def xPath = '/html/body/div[2]/div[3]/div/div/div[3]/div[3]/div/div'
 
@@ -106,20 +80,22 @@ public class Work_with_Settings_Card {
 
 		def columnsMap = [:]
 		def columns = []
-		def states = []
+		//		def n = 0
 		elements.each {
 			def name = it.getText()
-			if (name.length() > 1 ) { 
+			if (name.length() > 1 ) { // && name != 'Show Columns') {
 				columns.add(name)
-				if (getStates) {
-					def checkbox = driver.findElement(By.name(name))
-					def state = checkbox.isSelected()
-					states.add(state)
-					columnsMap.put(name, state)
-				}
+				//				columnsMap.put(n, name)
+				//				n ++
 			}
 		}
-		return [columns, states, columnsMap]
+		return columns
+
+	}
+
+	@Keyword
+	def getColumnStates() {
+		println('Getting column states')
 
 	}
 

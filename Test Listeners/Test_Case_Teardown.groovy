@@ -34,6 +34,7 @@ class Test_Case_Teardown {
 	 */
 	@AfterTestCase
 	def sampleAfterTestCase(TestCaseContext testCaseContext) {
+		println('test case teardown')
 		def suite = false
 		String fileName = GlobalVariable.testSuiteLogFile
 		if (fileName != null && fileName.length() > 1) {
@@ -42,7 +43,7 @@ class Test_Case_Teardown {
 			println('log file is at ' + fileName)
 		}
 		
-		String browser = CustomKeywords.'unfoldingWordKeywords.GetTestingConfig.getBrowserAndVersion'()
+		String browser = CustomKeywords.'unfoldingWord_Keywords.GetTestingConfig.getBrowserAndVersion'()
 		String separator = '==================================================================================================================================================='
 		String msg = separator
 		println(msg)

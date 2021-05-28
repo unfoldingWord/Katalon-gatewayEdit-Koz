@@ -19,12 +19,12 @@ WebUI.callTestCase(findTestCase('Components/LogIn'), [:])
 
 WebUI.delay(5)
 
-retValue = CustomKeywords.'unfoldingWordKeywords.Resources_Layout.getCardMap'()
+retValue = CustomKeywords.'unfoldingWord_Keywords.Resources_Layout.getCardMap'()
 //retValue = getCardMap()
 
 println('return value is ' + retValue)
 
-//retValue = CustomKeywords.'unfoldingWordKeywords.Resources_Layout.getCardMap1'()
+//retValue = CustomKeywords.'unfoldingWord_Keywords.Resources_Layout.getCardMap1'()
 
 //println('return value is ' + retValue)
 

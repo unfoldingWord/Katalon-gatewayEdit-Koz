@@ -1,4 +1,4 @@
-package unfoldingWordKeywords
+package unfoldingWord_Keywords
 
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
@@ -21,14 +21,23 @@ import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 
 import internal.GlobalVariable
 
-public class SendMessage {
+
+public class ManageTNColumns {
 	@Keyword
-	def SendFailMessage(msg) {
-		GlobalVariable.tcMessages.add(msg)
-		KeywordUtil.markFailed(msg)
+	// Could not figure out how to test the state, so this is strictly a toggle function
+	// Also, using the 'columns_Parmed' element does not work, so the actual element names need to be passed in the array
+	def toggleColumn(columns) {
+		def modalOpen = WebUI.verifyElementPresent(findTestObject('Page_tCC translationNotes/btnX_CloseColumns'), 1, , FailureHandling.OPTIONAL)
+		if (!modalOpen) {
+			WebUI.click(findTestObject('Page_tCC translationNotes/button_ViewColumns'))
+			WebUI.delay(1)
+		}
+		for (column in columns) {
+			WebUI.click(findTestObject('Page_tCC translationNotes/columns_Parmed', [('column') : column]))
+		}
+		if (!modalOpen) {
+			WebUI.click(findTestObject('Page_tCC translationNotes/btnX_CloseColumns'))
+		}
 	}
-	@Keyword
-	def SendInfoMessage(msg) {
-		GlobalVariable.tcMessages.add('[INFO ONLY] ' + msg)
-	}
+
 }

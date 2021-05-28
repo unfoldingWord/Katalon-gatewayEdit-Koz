@@ -1,4 +1,4 @@
-package unfoldingWordKeywords
+package unfoldingWord_Keywords
 
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
@@ -17,27 +17,42 @@ import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
+import com.kms.katalon.core.configuration.RunConfiguration as RunConfiguration
 
-import internal.GlobalVariable
+import org.openqa.selenium.Capabilities
+import org.openqa.selenium.WebDriver
+import com.kms.katalon.core.webui.driver.DriverFactory
+import java.awt.*
 
-
-public class ManageTNColumns {
+public class GetTestingConfig {
 	@Keyword
-	// Could not figure out how to test the state, so this is strictly a toggle function
-	// Also, using the 'columns_Parmed' element does not work, so the actual element names need to be passed in the array
-	def toggleColumn(columns) {
-		def modalOpen = WebUI.verifyElementPresent(findTestObject('Page_tCC translationNotes/btnX_CloseColumns'), 1, , FailureHandling.OPTIONAL)
-		if (!modalOpen) {
-			WebUI.click(findTestObject('Page_tCC translationNotes/button_ViewColumns'))
-			WebUI.delay(1)
-		}
-		for (column in columns) {
-			WebUI.click(findTestObject('Page_tCC translationNotes/columns_Parmed', [('column') : column]))
-		}
-		if (!modalOpen) {
-			WebUI.click(findTestObject('Page_tCC translationNotes/btnX_CloseColumns'))
-		}
+	def static getOperatingSystem () {
+		return(System.getProperty('os.name'))
 	}
 
+	@Keyword
+	def getBrowserAndVersion() {
+		WebDriver driver = DriverFactory.getWebDriver()
+		String browserName = driver.capabilities['browserName']
+		return browserName
+	}
+
+	@Keyword
+	def getScreenResolution() {
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize()
+		Integer screenHeight = screenSize.height
+		Integer screenWidth = screenSize.width
+		return [screenWidth, screenHeight]
+	}
+
+	@Keyword
+	def getTestCaseName() {
+		String path1 = RunConfiguration.getExecutionSource()
+		int pos1 = path1.lastIndexOf("/")
+		if (pos1 < 0) {
+			pos1 = path1.lastIndexOf($/\/$)
+		}
+		String x1 = path1.substring(pos1+1 , path1.length()-3);
+		return(x1)
+	}
 }

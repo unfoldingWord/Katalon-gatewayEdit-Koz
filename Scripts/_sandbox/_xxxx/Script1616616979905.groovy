@@ -15,34 +15,17 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
-import org.openqa.selenium.By as By
-import org.openqa.selenium.WebDriver as WebDriver
-import org.openqa.selenium.WebElement as WebElement
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
-import org.openqa.selenium.Keys as Keys
+import org.openqa.selenium.WebDriver
 
-WebUI.openBrowser('google.com')
+WebUI.callTestCase(findTestCase('Components/LogIn'), [('organization'): 'test_org2'])
 
-//WebUI.executeJavaScript('window.open();', [])
+WebUI.click(findTestObject('Object Repository/Page_Main/menu_card_Parmed', [('resource') : 'tn']))
 
-currentWindow = WebUI.getWindowIndex()
+WebUI.delay(1)
 
-println(currentWindow)
+// Close the settings card
+WebUI.click(findTestObject('Object Repository/Card_Settings/button_Settings_Close'))
 
-CustomKeywords.'unfoldingWordKeywords.Browsers.openNewTab'()
-
-//Go to new tab
-//WebUI.switchToWindowIndex(currentWindow + 1)
-
-WebUI.delay(3)
-
-WebUI.switchToWindowIndex(currentWindow)
-
-WebUI.delay(3)
-
-WebUI.closeBrowser()
-
-//WebUI.sendKeys(findTestObject(null), Keys.chord(Keys.COMMAND, 't'))
-
-//WebUI.sendKeys(findTestObject(null), Keys.chord(Keys.CONTROL, Keys.SHIFT, 'N'))
+WebUI.callTestCase(findTestCase('Components/LogOut'), [:])
 

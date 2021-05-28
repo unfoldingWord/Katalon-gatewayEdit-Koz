@@ -21,16 +21,16 @@ import com.kms.katalon.core.webui.driver.DriverFactory
 
 WebUI.callTestCase(findTestCase('Components/LogIn'), [:])
 
-retValue = CustomKeywords.'unfoldingWordKeywords.Resources_Layout.getCardMap'()
+retValue = CustomKeywords.'unfoldingWord_Keywords.Resources_Layout.getCardMap'()
 
 WebUI.delay(5)
 
-(ref, text) = CustomKeywords.'unfoldingWordKeywords.Scripture_Card.getScriptureVerse'('Literal Text')
+(ref, text) = CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.getScriptureVerse'('Literal Text')
 
 println('return value is ' + ref + ':' + text)
 
-//(words, highlights) = CustomKeywords.'unfoldingWordKeywords.Scripture_Card.getScriptureWordsandHighlights'(1)
-(words, highlights) = CustomKeywords.'unfoldingWordKeywords.Scripture_Card.getScriptureWordsandHighlights'('Literal Text')
+//(words, highlights) = CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.getScriptureWordsandHighlights'(1)
+(words, highlights) = CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.getScriptureWordsandHighlights'('Literal Text')
 
 
 
