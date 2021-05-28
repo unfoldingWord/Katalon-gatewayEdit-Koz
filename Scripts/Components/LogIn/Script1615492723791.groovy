@@ -57,7 +57,7 @@ WebUI.setEncryptedText(findTestObject('Page_Login/input_Password'), GlobalVariab
 
 WebUI.click(findTestObject('Page_Login/button_Login'))
 
-if (WebUI.verifyElementPresent(findTestObject('Page_Account_Settings/text_Account Setup'), 1, FailureHandling.OPTIONAL)) {
+if (WebUI.verifyElementPresent(findTestObject('Page_Account_Settings/text_Account Setup'), 3, FailureHandling.OPTIONAL)) {
 
 	println('Selecting ' + myOrganization)
 	WebUI.click(findTestObject('Page_Account_Settings/list_Organization'))

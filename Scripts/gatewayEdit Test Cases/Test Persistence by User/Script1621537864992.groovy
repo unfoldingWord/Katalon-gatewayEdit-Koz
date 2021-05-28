@@ -34,8 +34,10 @@ tabTest = false
 orgs = ['test_org','test_org2']
 
 orgs.each { org ->
+	
+	orgFail = false
 
-	loopMax = 25
+	loopMax = 20
 	
 	loop = 1
 	
@@ -208,6 +210,24 @@ def testPersistence(columnsMap, test) {
 			if (columnsMap.get('Reference') && columnsMap.get('Note')) {
 				msg = msg + ' - - - UNEXPECTED'
 			}
+		}
+		
+		if (!orgFail) {
+			if (columns.contains('OccurrenceNote')) {
+				header = '      B   C   V   I   O   S   O   G   O            B   C   V   I   O   S   O   G   O'
+//						  WAS - N   Y   Y   Y   Y   N   N   Y   N      NOW - Y   Y   Y   Y   Y   Y   Y   Y   Y
+			} else { 
+				header = '      B   C   V   R   I   O   S   Q   T   N            B   C   V   R   I   O   S   Q   T   N'
+//				header = 'WAS - N   N   N   N   Y   Y   Y   Y   N   N      NOW - Y   Y   Y   Y   Y   Y   Y   Y   Y   Y'
+			}
+			
+			CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendFailMessage'(header)
+			
+			orgFail = true
+		}
+		
+		if (loop >= loopMax) {
+			msg = msg + '\n'
 		}
 		
 		CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendFailMessage'(msg)
