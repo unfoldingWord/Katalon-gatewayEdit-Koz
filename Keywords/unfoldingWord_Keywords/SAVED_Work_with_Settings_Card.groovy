@@ -31,9 +31,9 @@ public class SAVED_Work_with_Settings_Card {
 		println('Getting font size')
 
 		def retValue = false
-		if (WebUI.verifyElementPresent(findTestObject('Card_Settings/span_Font_Size'), 1, FailureHandling.OPTIONAL)) {
+		if (WebUI.verifyElementPresent(findTestObject('Card_Settings/span_Font_Size-Markdown'), 1, FailureHandling.OPTIONAL)) {
 
-			def pctStr = WebUI.getAttribute(findTestObject('Card_Settings/span_Font_Size'), "aria-valuenow")
+			def pctStr = WebUI.getAttribute(findTestObject('Card_Settings/span_Font_Size-Markdown'), "aria-valuenow")
 
 			retValue = Integer.parseInt(pctStr)
 		}
@@ -47,21 +47,21 @@ public class SAVED_Work_with_Settings_Card {
 
 		def retValue = false
 
-		def minStr = WebUI.getAttribute(findTestObject('Card_Settings/span_Font_Size'), "aria-valuemin")
+		def minStr = WebUI.getAttribute(findTestObject('Card_Settings/span_Font_Size-Markdown'), "aria-valuemin")
 
 		def min = Integer.parseInt(minStr)
 
-		def maxStr = WebUI.getAttribute(findTestObject('Card_Settings/span_Font_Size'), "aria-valuemax")
+		def maxStr = WebUI.getAttribute(findTestObject('Card_Settings/span_Font_Size-Markdown'), "aria-valuemax")
 
 		def max = Integer.parseInt(maxStr)
 
-		def sliderWidth = WebUI.getElementWidth(findTestObject('Card_Settings/slider_Font_Size'))
+		def sliderWidth = WebUI.getElementWidth(findTestObject('Card_Settings/slider_Font_Size-Markdown'))
 
 		def diff = (value - min)/100
 
 		int offset = sliderWidth * (diff - 0.5)
 
-		WebUI.clickOffset(findTestObject('Card_Settings/slider_Font_Size'), offset, 0)
+		WebUI.clickOffset(findTestObject('Card_Settings/slider_Font_Size-Markdown'), offset, 0)
 	}
 
 	@Keyword

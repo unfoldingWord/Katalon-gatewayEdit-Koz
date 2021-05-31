@@ -32,26 +32,15 @@ printAll = true
 tabTest = false
 
 closeOpen = false
-
-// Test scripture references
-refs = [['luk','24','53'], ['rut','3','13'], ['1jn','5','15'], ['rom','16','27'], ['neh','12,12'], ['rev','9','18']]
 	
-// Array of card id's and options
+// Array of card id's and font size objects
 cards = ['0':'Scripture','1':'Scripture','2':'Scripture','tn':'Markdown','ta':'Markdown','twl':'No_Markdown','twa':'Markdown','tq':'Markdown']
 
 orgs = ['test_org','test_org2']
 //orgs = ['test_org']
 
-users = ['tc01', 'tcc001']
-
-for (user in users) {
-//users.each { user ->
-
-	myUser = users.indexOf(user)
-		
-	myOrg = myUser
-	
-	org = orgs[myOrg]
+orgs.each { org ->
+	myOrg = orgs.indexOf(orgs)
 	
 	orgFail = false
 
@@ -69,29 +58,13 @@ for (user in users) {
 		
 		fontSizes = [:]
 		
-		WebUI.callTestCase(findTestCase('Components/LogIn'), [('user') : user, ('organization'): org])
-		
-		ref = Math.abs(new Random().nextInt() % (refs.size()))
-		
-		reference = refs[ref]
-		
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.setScriptureReference'(reference[0], reference[1], reference[2])
-		
-		if (myUser == 0) {
-			reference0 = reference
-		} else {
-			reference1 = reference
-		}
-
+		WebUI.callTestCase(findTestCase('Components/LogIn'), [('organization'): org])
 		
 		cards.each { id, font ->
 			
 			println('Processing ' + id + ' card')
 			
 			WebUI.click(findTestObject('Page_Main/menu_card_Parmed', [('resource') : id]))
-			
-			result = Math.abs(new Random().nextInt() % (refs.size()+1))
-			
 			
 			// Markdown View switch
 			if (font == 'Markdown') {
@@ -106,10 +79,10 @@ for (user in users) {
 				
 				markdowns.put(id,newState)
 				
-				if (myUser == 0) {
+				if (myOrg == 0) {
 					markdowns0 = markdowns
 				} else {
-					markdowns1 = markdowns
+					markdowns0 = markdowns
 				}
 				
 				println('Setting MarkdownView swith to ' + mdState)
@@ -132,7 +105,7 @@ for (user in users) {
 			
 			fontSizes.put(id,size)
 			
-			if (myUser == 0) {
+			if (myOrg == 0) {
 				fontSizes0 = fontSizes
 			} else {
 				fontSizes1 = fontSizes
@@ -142,6 +115,13 @@ for (user in users) {
 			
 				// Get a list of the tN columns
 				(columns, states, columnsMap) = CustomKeywords.'unfoldingWord_Keywords.Work_with_Settings_Card.getColumnsList'()
+				
+				if (first) {
+					CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendInfoMessage'(org)
+					msg = columns
+					CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendInfoMessage'(msg)
+					first = false
+				}
 				
 				offCount = 0
 				// Build a map of random states for the columns
@@ -153,16 +133,18 @@ for (user in users) {
 						state = false
 						offCount ++
 					}
-					
+				//	if (name.contains('Note')) {
+				//		state = false
+				//	}
 					columnsMap.put(name, state)	
 				}
 				
-				if (myUser == 0) {
+				if (myOrg == 0) {
 					columnsMap0 = columnsMap
 				} else {
 					columnsMap1 = columnsMap
 				}
-
+				
 				msg = offCount + ' not checked -- '
 				columnsMap.each { name, state ->
 					pair = name + ':' + state
@@ -182,7 +164,7 @@ for (user in users) {
 					WebUI.click(findTestObject('Object Repository/Page_Main/menu_card_Parmed', [('resource') : 'tn']))
 					
 					println('\n>>>>>>>>>>> Testing persistence after reopening settings card\n')
-					testPersistence(columnsMap, 'reopening settings card', columns)
+					testPersistence(columnsMap, 'reopening settings card')
 				}
 												
 			}
@@ -220,7 +202,7 @@ for (user in users) {
 				WebUI.delay(1)
 				
 				println('\n>>>>>>>>>>> Testing persistence after opening a new tab\n')
-				testPersistence(columnsMap, 'opening a new tab', columns)
+				testPersistence(columnsMap, 'opening a new tab')
 			}
 			
 		}
@@ -234,88 +216,66 @@ for (user in users) {
 		// Log out and back in
 		WebUI.callTestCase(findTestCase('Components/LogOut'), [:])
 		
-		msg = 'Testing ' + user + ' and ' + org + ' after logging out.'
-		
-		CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendInfoMessage'(msg)
-		
-		testByUserOrg(user, org, markdowns, fontSizes, columnsMap, columns, reference )
+		WebUI.callTestCase(findTestCase('Components/LogIn'), [('organization'): org])
+
+		cards.each { id, font ->
+			
+			println('Processing ' + id + ' card')
+			
+			WebUI.click(findTestObject('Page_Main/menu_card_Parmed', [('resource') : id]))
+			
+			println('Processing markdown switch')
+			if (font == 'Markdown') {
+				
+				WebDriver driver = DriverFactory.getWebDriver()
+				
+				mdSwitch = driver.findElement(By.name('markdownView'))
+				
+				isState = mdSwitch.isSelected()
+				
+				setState = markdowns.get(id)
+				
+				println('Testing that MarkdownView swith is ' + setState)
+				
+				if (isState != setState) {
+					msg = 'Test failed because the Markdown View switch on card ' + id + ' is ' + isState + ' and was set to ' + setState
+					println(msg)
+					CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendFailMessage'(msg)
+				}
+			}
+			
+			println('Processing font size')
+			fontSize = CustomKeywords.'unfoldingWord_Keywords.Work_with_Settings_Card.getFontSize'(font)
+			
+			setSize = fontSizes.get(id)
+			if (fontSize != setSize) {
+				msg = 'Test failed because the font size on card ' + id + ' is ' + fontSize + ' and was set to ' + setSize
+				println(msg)
+				CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendFailMessage'(msg)
+			}
+
+			if (id == 'tn') {
+				println('\n>>>>>>>>>>> Testing column checkboxes persistence after logout and in\n')
+				testPersistence(columnsMap, 'new log in')
+			}
+			
+			// Close the settings card
+			WebUI.scrollToElement(findTestObject('Object Repository/Card_Settings/button_Settings_Close'), 1)
+			WebUI.click(findTestObject('Object Repository/Card_Settings/button_Settings_Close'))
+				
+
+		}
+		WebUI.closeBrowser()
 		
 	loop ++
 	}
-
 }
-
-// Now test for persistence after changing users and then after opening new tabs
-tabs = false
-
-done = false
-
-while (!done) {
-	users.each { user ->
-		
-		myUser = users.indexOf(user)
-		
-		myOrg = myUser
-		
-		org = orgs[myOrg]
-			
-		if (myUser == 0) {
-			markdowns = markdowns0
-			fontSizes = fontSizes0
-			columnsMap = columnsMap0
-			reference = reference0
-		} else {
-			markdowns = markdowns1
-			fontSizes = fontSizes1
-			columnsMap = columnsMap1
-			reference = reference1
-		}
-		
-		if (tabs) {
-			
-			done = true
-			
-			// Open a second browser tab
-			if (myBrowser.contains('chrome')) {
-				WebUI.executeJavaScript('window.open();', [])
-			} else if (system.contains('Windows')) {
-				WebUI.sendKeys(findTestObject('Page_tCC translationNotes/tNText_GLOutlinePoint1'), Keys.chord(Keys.CONTROL, 't'))
-			}
-			
-			currentWindow = WebUI.getWindowIndex()
-			
-			//Go to new tab
-			WebUI.switchToWindowIndex(currentWindow + 1)
-			
-			msg = 'Testing ' + user + ' and ' + org + ' in a new tab.'
-			
-		} else {
-			
-			msg = 'Testing ' + user + ' and ' + org + ' after changing users.'		
-		}
-		
-		CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendInfoMessage'(msg)
-			
-		testByUserOrg(user, org, markdowns, fontSizes, columnsMap, columns, reference )
-	}
-	
-	tabs = true
-	
-	myBrowser = CustomKeywords.'unfoldingWord_Keywords.GetTestingConfig.getBrowserAndVersion'()
-	
-	if (GlobalVariable.systemOS.contains('Mac') && !myBrowser.contains('chrome')) {
-		println('Bypassed testing multiple sessions in Firefox on Mac')
-		return false
-	}
-	
-}		
-
 
 GlobalVariable.scriptRunning = false
 
 WebUI.closeBrowser()
 
-def testPersistence(columnsMap, test, columns) {
+def testPersistence(columnsMap, test) {
 
 	// Get a new map of tN columns
 	(columns, states, columnsMapNew) = CustomKeywords.'unfoldingWord_Keywords.Work_with_Settings_Card.getColumnsList'('states')
@@ -367,9 +327,6 @@ def testPersistence(columnsMap, test, columns) {
 		}
 		
 		if (!orgFail) {
-//			msg = columns
-//			CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendInfoMessage'(msg)
-			
 			if (columns.contains('OccurrenceNote')) {
 				header = '      B   C   V   I   O   S   O   G   O            B   C   V   I   O   S   O   G   O'
 //						  WAS - N   Y   Y   Y   Y   N   N   Y   N      NOW - Y   Y   Y   Y   Y   Y   Y   Y   Y
@@ -391,75 +348,4 @@ def testPersistence(columnsMap, test, columns) {
 		
 	}
 
-}
-
-def testByUserOrg(user, org, markdowns, fontSizes, columnsMap, columns, reference) {
-	
-	WebUI.callTestCase(findTestCase('Components/LogIn'), [('user') : user, ('organization'): org])
-	
-	(book, chapter, verse) = CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.getScriptureReference'()
-	
-	refNew = book + ' ' + chapter + ':' + verse
-	
-	refSet = reference[0] + ' ' + reference[1] + ':' + reference[2]
-	
-	if (refNew != refSet) {
-		msg = 'Test failed because the scripture reference is ' + refNew + ' and was set to ' + refSet
-		println(msg)
-		CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendFailMessage'(msg)
-
-	}
-	
-
-	cards.each { id, font ->
-		
-		println('Processing ' + id + ' card')
-		
-		WebUI.click(findTestObject('Page_Main/menu_card_Parmed', [('resource') : id]))
-		
-		println('Processing markdown switch')
-		if (font == 'Markdown') {
-			
-			WebDriver driver = DriverFactory.getWebDriver()
-			
-			mdSwitch = driver.findElement(By.name('markdownView'))
-			
-			isState = mdSwitch.isSelected()
-			
-			setState = markdowns.get(id)
-			
-			println('Testing that MarkdownView swith is ' + setState)
-			
-			if (isState != setState) {
-				msg = 'Test failed because the Markdown View switch on card ' + id + ' is ' + isState + ' and was set to ' + setState
-				println(msg)
-				CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendFailMessage'(msg)
-			}
-		}
-		
-		println('Processing font size')
-		fontSize = CustomKeywords.'unfoldingWord_Keywords.Work_with_Settings_Card.getFontSize'(font)
-		
-		setSize = fontSizes.get(id)
-		if (fontSize != setSize) {
-			msg = 'Test failed because the font size on card ' + id + ' is ' + fontSize + ' and was set to ' + setSize
-			println(msg)
-			CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendFailMessage'(msg)
-		}
-
-		if (id == 'tn') {
-			println('\n>>>>>>>>>>> Testing column checkboxes persistence after logout and in\n')
-			
-			println('test columns = ' + columns)
-			println('test columnsMap = ' + columnsMap)
-
-			testPersistence(columnsMap, 'new log in', columns)
-		}
-		
-		// Close the settings card
-		WebUI.scrollToElement(findTestObject('Object Repository/Card_Settings/button_Settings_Close'), 1)
-		WebUI.click(findTestObject('Object Repository/Card_Settings/button_Settings_Close'))
-			
-
-	}
 }

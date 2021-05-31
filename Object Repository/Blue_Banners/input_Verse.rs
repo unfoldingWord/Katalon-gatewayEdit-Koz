@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>input__Verse</name>
+   <name>input_Verse</name>
    <tag></tag>
    <elementGuidId>332603cb-4823-43b3-8d41-91ffdcd7f0ad</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//input[@id='combo-box-verse']</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>#combo-box-verse</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//input[@id='combo-box-verse']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>

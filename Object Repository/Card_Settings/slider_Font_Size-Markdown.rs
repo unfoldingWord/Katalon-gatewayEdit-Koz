@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>slider_Font_Size</name>
+   <name>slider_Font_Size-Markdown</name>
    <tag></tag>
    <elementGuidId>23109608-bd34-41a2-bc26-91f38067af00</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>span.MuiSlider-root.jss114.MuiSlider-colorPrimary</value>
-      </entry>
-      <entry>
          <key>XPATH</key>
          <value>(.//*[normalize-space(text()) and normalize-space(.)='Markdown View'])[1]/following::span[1]</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>span.MuiSlider-root.jss114.MuiSlider-colorPrimary</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

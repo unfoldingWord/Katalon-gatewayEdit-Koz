@@ -6,12 +6,16 @@
    <elementGuidId>bee522af-a180-4246-ab2a-9751d83d187f</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>input[name=&quot;markdownView&quot;]</value>
-      </entry>
-      <entry>
          <key>XPATH</key>
          <value>//input[@name='markdownView']</value>
+      </entry>
+      <entry>
+         <key>BASIC</key>
+         <value>//*[@name = 'markdownView' and @type = 'checkbox']</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>input[name=&quot;markdownView&quot;]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>

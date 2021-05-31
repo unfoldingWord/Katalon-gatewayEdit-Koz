@@ -28,13 +28,15 @@ import com.kms.katalon.core.webui.driver.DriverFactory
 public class Work_with_Settings_Card {
 	@Keyword
 	// Returns the font size setting from the open settings card, or 'false' if the font size element could not be found
-	def getFontSize() {
+	def getFontSize(font) {
 		println('Getting font size')
 
 		def retCode = false
-		if (WebUI.verifyElementPresent(findTestObject('Card_Settings/span_Font_Size'), 1, FailureHandling.OPTIONAL)) {
+		println('verifying element present Card_Settings/span_Font_Size-' + font)
+		if (WebUI.verifyElementPresent(findTestObject('Card_Settings/span_Font_Size-' + font), 1, FailureHandling.OPTIONAL)) {
 
-			def pctStr = WebUI.getAttribute(findTestObject('Card_Settings/span_Font_Size'), "aria-valuenow")
+			println('getting aria-valuenow from Card_Settings/span_Font_Size-' + font)
+			def pctStr = WebUI.getAttribute(findTestObject('Card_Settings/span_Font_Size-' + font), "aria-valuenow")
 
 			retCode = Integer.parseInt(pctStr)
 		}
@@ -44,28 +46,28 @@ public class Work_with_Settings_Card {
 
 	@Keyword
 	// Sets the font size to the specified value (%) on the open settings card. Return 'false' if an invalid value was specified.
-	def setFontSize(int value) {
+	def setFontSize(int value, font) {
 		println('Setting font size to ' + value)
 
-		def retValue = false
+		def retCode = false
 
-		def minStr = WebUI.getAttribute(findTestObject('Card_Settings/span_Font_Size'), "aria-valuemin")
+		def minStr = WebUI.getAttribute(findTestObject('Card_Settings/span_Font_Size-' + font), "aria-valuemin")
 
 		def min = Integer.parseInt(minStr)
 
-		def maxStr = WebUI.getAttribute(findTestObject('Card_Settings/span_Font_Size'), "aria-valuemax")
+		def maxStr = WebUI.getAttribute(findTestObject('Card_Settings/span_Font_Size-' + font), "aria-valuemax")
 
 		def max = Integer.parseInt(maxStr)
 
-		if (min < value && value < max) {
+		if (min <= value && value <= max) {
 
-			def sliderWidth = WebUI.getElementWidth(findTestObject('Card_Settings/slider_Font_Size'))
+			def sliderWidth = WebUI.getElementWidth(findTestObject('Card_Settings/slider_Font_Size-' + font))
 
 			def diff = (value - min)/100
 
 			int offset = sliderWidth * (diff - 0.5)
 
-			WebUI.clickOffset(findTestObject('Card_Settings/slider_Font_Size'), offset, 0)
+			WebUI.clickOffset(findTestObject('Card_Settings/slider_Font_Size-' + font), offset, 0)
 
 			retCode = true
 

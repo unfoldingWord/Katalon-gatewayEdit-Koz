@@ -76,11 +76,11 @@ pct = 140
 
 diff = (pct - min)
 
-sliderWidth = WebUI.getElementWidth(findTestObject('Object Repository/Card_Settings/slider_Font_Size'))
+sliderWidth = WebUI.getElementWidth(findTestObject('Card_Settings/slider_Font_Size-Markdown'))
 
 offset = sliderWidth - sliderWidth/2 + diff/100
 
-WebUI.clickOffset(findTestObject('Card_Settings/slider_Font_Size'), offset, 0)
+WebUI.clickOffset(findTestObject('Card_Settings/slider_Font_Size-Markdown'), offset, 0)
 
 return false
 
@@ -88,13 +88,13 @@ WebUI.verifyElementPresent(findTestObject('Card_Settings/input_Font_Size'), 1)
 
 pct = WebUI.getAttribute(findTestObject('Card_Settings/input_Font_Size'), "value")
 
-sliderWidth = WebUI.getElementWidth(findTestObject('Object Repository/Card_Settings/slider_Font_Size'))
+sliderWidth = WebUI.getElementWidth(findTestObject('Card_Settings/slider_Font_Size-Markdown'))
 
 pct = 0.7
 
 offset = sliderWidth * (pct - 0.5)
 
-WebUI.clickOffset(findTestObject('Card_Settings/slider_Font_Size'), offset, 0)
+WebUI.clickOffset(findTestObject('Card_Settings/slider_Font_Size-Markdown'), offset, 0)
 
 WebUI.delay(5)
 
@@ -102,7 +102,7 @@ pct = 0.2
 
 offset = sliderWidth * (pct - 0.5)
 
-WebUI.clickOffset(findTestObject('Card_Settings/slider_Font_Size'), offset, 0)
+WebUI.clickOffset(findTestObject('Card_Settings/slider_Font_Size-Markdown'), offset, 0)
 
 done = true
 

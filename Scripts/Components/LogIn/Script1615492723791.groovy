@@ -48,12 +48,23 @@ if (binding.hasVariable('organization')) {
 	myOrganization = GlobalVariable.organization
 }
 
-user = GlobalVariable.user1Name
-println('Logging in as ' + user)
+if (binding.hasVariable('user')) {
+	myUser = user
+	if (user == 'tc01') {
+		myPassword = '+0+nfRaS+QU='
+	} else if (user == 'tcc001') {
+		myPassword = 'JY5PahTdTnI='
+	}
+} else {
+	myUser = GlobalVariable.user1Name
+	myPassword = GlobalVariable.user1Password
+}
 
-WebUI.setText(findTestObject('Page_Login/input_Username'), user)
+println('Logging in as ' + myUser)
 
-WebUI.setEncryptedText(findTestObject('Page_Login/input_Password'), GlobalVariable.user1Password)
+WebUI.setText(findTestObject('Page_Login/input_Username'), myUser)
+
+WebUI.setEncryptedText(findTestObject('Page_Login/input_Password'), myPassword)
 
 WebUI.click(findTestObject('Page_Login/button_Login'))
 

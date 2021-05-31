@@ -6,15 +6,19 @@
    <elementGuidId>2e4a7b1f-cdea-4f65-baa6-f80247e913b1</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>#resource_card_tn_card_menu</value>
-      </entry>
-      <entry>
          <key>XPATH</key>
          <value>(.//*[normalize-space(text()) and normalize-space(.)='translationNotes'])[1]/following::*[name()='svg'][3]</value>
       </entry>
+      <entry>
+         <key>BASIC</key>
+         <value>//*[@id = 'resource_card_tn_card_menu']</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>#resource_card_tn_card_menu</value>
+      </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>true</useRalativeImagePath>
    <webElementProperties>
       <isSelected>false</isSelected>

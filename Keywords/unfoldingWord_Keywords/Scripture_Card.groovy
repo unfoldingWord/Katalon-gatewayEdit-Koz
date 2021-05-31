@@ -23,9 +23,53 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import com.kms.katalon.core.webui.driver.DriverFactory
 
+import org.openqa.selenium.Keys as Keys
+
+
 import internal.GlobalVariable
 
 public class Scripture_Card {
+	// RENAME TO SIMPLY "Scripture"
+	// ADD getScriptureReference()
+	// ADD setScriptureReference()
+
+	@Keyword
+	// Get the scripture reference from the navigator bar
+	def getScriptureReference() {
+		def book = WebUI.getAttribute(findTestObject('Blue_Banners/input_Book'),'value')
+		def chapter = WebUI.getAttribute(findTestObject('Blue_Banners/input_Chapter'),'value')
+		def verse = WebUI.getAttribute(findTestObject('Blue_Banners/input_Verse'),'value')
+		def reference = chapter + ':' + verse
+
+		return [
+			book,
+			chapter,
+			verse,
+			reference
+		]
+	}
+
+
+	@Keyword
+	// Set the scripture reference in the navigator bar
+	def setScriptureReference(def book, def chapter, def verse) {
+		if (book != '' && book != null) {
+			WebUI.click(findTestObject('Blue_Banners/comboBoxArrow_Book'))
+			WebUI.click(findTestObject('Blue_Banners/list_Book_Parmed', [('book'):book]))
+		}
+	
+		if (chapter != '' && chapter != null) {
+			WebUI.click(findTestObject('Blue_Banners/comboBoxArrow_Chapter'))
+			WebUI.click(findTestObject('Blue_Banners/list_Chapter_Parmed', [('chapter'):chapter]))
+		}
+	
+		if (verse != '' && verse != null) {
+			WebUI.click(findTestObject('Blue_Banners/comboBoxArrow_Verse'))
+			WebUI.click(findTestObject('Blue_Banners/list_Verse_Parmed', [('verse'):verse]))
+		}
+	}
+	
+	
 	@Keyword
 	// Get the text and reference for the scripture card whose header contains the title specified
 	def getScriptureVerse(title) {
