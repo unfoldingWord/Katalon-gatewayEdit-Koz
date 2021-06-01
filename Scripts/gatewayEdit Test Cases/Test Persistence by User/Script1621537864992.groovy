@@ -304,8 +304,9 @@ while (!done) {
 	myBrowser = CustomKeywords.'unfoldingWord_Keywords.GetTestingConfig.getBrowserAndVersion'()
 	
 	if (GlobalVariable.systemOS.contains('Mac') && !myBrowser.contains('chrome')) {
-		println('Bypassed testing multiple sessions in Firefox on Mac')
-		return false
+		msg = 'Bypassed testing new tabs in Firefox on Mac'
+		CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendInfoMessage'(msg)
+		done = true
 	}
 	
 }		
