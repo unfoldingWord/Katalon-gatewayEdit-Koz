@@ -26,6 +26,11 @@ try {
 if (!open) {
 	
 	WebUI.openBrowser('')
+	
+	if (GlobalVariable.browser == '' || GlobalVariable.browser == null || 1 == 1) {
+		GlobalVariable.browser = CustomKeywords.'unfoldingWord_Keywords.GetTestingConfig.getBrowserAndVersion'()
+	}
+	println('Browser is ' + GlobalVariable.browser)
 
 	WebUI.navigateToUrl(GlobalVariable.url)
 }

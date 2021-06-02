@@ -23,4 +23,10 @@
       <isRun>true</isRun>
       <testCaseId>Test Cases/gatewayEdit Test Cases/Test tN Checkbox Persistence</testCaseId>
    </testCaseLink>
+   <testCaseLink>
+      <guid>3134bb69-f730-4e31-b5ef-f33ce785d4bc</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/gatewayEdit Test Cases/Test Pasting Reference</testCaseId>
+   </testCaseLink>
 </TestSuiteEntity>

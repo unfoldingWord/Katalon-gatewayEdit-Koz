@@ -54,17 +54,15 @@ class HotKeys {
 	def static sendKeys(element,function) {
 		// Supported functions: copy, paste, all
 
-		function = function. toLowerCase()
+		function = function.toLowerCase()
 
-		if (GlobalVariable.browser == '' || GlobalVariable.browser == null) {
-			GlobalVariable.browser = GetTestingConfig.getBrowserAndVersion()
-		}
-
+		GlobalVariable.browser = GetTestingConfig.getBrowserAndVersion()
+		
 		if (element == 'null') {
 			element = null
 		}
 
-		println('sendKeys to ' + element + ' in ' + GlobalVariable.browser + ' on ' + GlobalVariable.systemOS)
+		println('sendKeys ' + function + ' to ' + element + ' in ' + GlobalVariable.browser + ' on ' + GlobalVariable.systemOS)
 
 		if (GlobalVariable.systemOS.contains('Windows')) {
 			if (function == 'copy') {
@@ -90,7 +88,10 @@ class HotKeys {
 						WebUI.sendKeys(findTestObject(element), Keys.chord(Keys.CONTROL, Keys.INSERT))
 					} else if (function == 'paste') {
 						WebUI.sendKeys(findTestObject(element), Keys.chord(Keys.SHIFT, Keys.INSERT))
-					}				}
+					}
+				} else {
+					SendMessage.SendFailMessage('<<<<<<< sendKeys failed because the browswer is not Chrome or Firefox >>>>>>>')
+				}
 			}
 		}
 	}

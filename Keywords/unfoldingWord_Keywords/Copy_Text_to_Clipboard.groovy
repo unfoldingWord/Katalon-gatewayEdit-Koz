@@ -17,42 +17,29 @@ import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import com.kms.katalon.core.configuration.RunConfiguration as RunConfiguration
+import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
+import internal.GlobalVariable
 
-import org.openqa.selenium.Capabilities
-import org.openqa.selenium.WebDriver
-import com.kms.katalon.core.webui.driver.DriverFactory
-import java.awt.*
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
+import org.openqa.selenium.Keys as Keys
+import groovy.io.FileType as FileType
+import org.apache.commons.io.FileUtils as FileUtils
 
-public class GetTestingConfig {
+import java.awt.datatransfer.Clipboard as Clipboard
+import java.awt.datatransfer.Transferable as Transferable
+import java.awt.datatransfer.DataFlavor as DataFlavor
+import java.awt.Toolkit as Toolkit
+import java.awt.datatransfer.StringSelection;
+
+public class Copy_Text_to_Clipboard {
 	@Keyword
-	def static getOperatingSystem () {
-		return(System.getProperty('os.name'))
+	// Copy text to clipboard
+	def copyText(def myText) {
+		StringSelection stringSelection = new StringSelection(myText)
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard()
+		clipboard.setContents(stringSelection, null)
 	}
 
-	@Keyword
-	def static getBrowserAndVersion() {
-		WebDriver driver = DriverFactory.getWebDriver()
-		String browserName = driver.capabilities['browserName']
-		return browserName
-	}
-
-	@Keyword
-	def getScreenResolution() {
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize()
-		Integer screenHeight = screenSize.height
-		Integer screenWidth = screenSize.width
-		return [screenWidth, screenHeight]
-	}
-
-	@Keyword
-	def getTestCaseName() {
-		String path1 = RunConfiguration.getExecutionSource()
-		int pos1 = path1.lastIndexOf("/")
-		if (pos1 < 0) {
-			pos1 = path1.lastIndexOf($/\/$)
-		}
-		String x1 = path1.substring(pos1+1 , path1.length()-3);
-		return(x1)
-	}
 }

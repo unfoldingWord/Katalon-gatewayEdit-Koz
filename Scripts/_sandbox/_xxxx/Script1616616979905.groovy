@@ -20,93 +20,34 @@ import org.openqa.selenium.WebDriver as WebDriver
 import javax.swing.*
 import org.openqa.selenium.Keys as Keys
 
-//refs = ['luk':['15','53'], 'rut':['3','13'], '1JN':['5','15'], 'Romans':['16':'27'], 'neh':['12,12'], 'rev':['9','19']]
 refs = [['luk', '24', '53'], ['rut', '3', '13'], ['1jn', '5', '15'], ['Romans', '16', '27'], ['neh', '12', '12'], ['rev'
         , '9', '18']]
+refs = [['luk', '24', '53']]
 
-WebUI.callTestCase(findTestCase('Components/LogIn'), [:])
+myElement = 'Page_Login/input_Username'
 
-ref = Math.abs(new Random().nextInt() % (refs.size()))
+WebUI.openBrowser('https://gateway-edit.netlify.app/')
 
-refs.each {reference ->
+CustomKeywords.'unfoldingWord_Keywords.Copy_Text_to_Clipboard.copyText'('tc01')
 
-//reference = refs[3]
+WebUI.click(findTestObject(myElement))
 
-CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.setScriptureReference'(reference[0], reference[1], reference[2])
+CustomKeywords.'unfoldingWord_Keywords.HotKeys.sendKeys'(myElement, 'paste')
 
-}
+WebUI.click(findTestObject(myElement))
 
-println(reference)
+CustomKeywords.'unfoldingWord_Keywords.HotKeys.sendKeys'(myElement, 'all')
 
-refSet = reference[0] + ' ' + reference[1] + ':' + reference[2]
+CustomKeywords.'unfoldingWord_Keywords.Copy_Text_to_Clipboard.copyText'('')
 
-println(refSet)
+CustomKeywords.'unfoldingWord_Keywords.HotKeys.sendKeys'(myElement, 'paste')
 
-return false
-refs.each({ def ref ->
-        CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.setScriptureReference'(ref[0], ref[1], ref[2])
+CustomKeywords.'unfoldingWord_Keywords.Copy_Text_to_Clipboard.copyText'('tcc001')
 
-        sleep(2000)
-    })
+WebUI.click(findTestObject(myElement))
 
-return false
+CustomKeywords.'unfoldingWord_Keywords.HotKeys.sendKeys'(myElement, 'paste')
 
-min = 25
+WebUI.delay(10)
 
-max = 0
-
-lists = []
-
-i = 0
-
-while (i < 20) {
-    lists.add(i)
-
-    i++
-}
-
-//for (list in lists) {
-lists.each({ def list ->
-        result = Math.abs(new Random().nextInt() % refs.size())
-
-        if (result < min) {
-            min = result
-        }
-        
-        if (result > max) {
-            max = result
-        }
-        
-        println('result is ' + result)
-
-        ref = (refs[result])
-
-        myRef = (((((ref[0]) + ' ') + (ref[1])) + ':') + (ref[2]))
-
-        println(myRef)
-    })
-
-println((min + ':') + max)
-
-WebUI.sendKeys(findTestObject(null), Keys.chord(Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE))
-
-def setScriptureReference(def book, def chapter, def verse) {
-	if (book != '' && book != null) {
-		//			WebUI.click(findTestObject('Blue_Banners/input_Book'))
-		WebUI.click(findTestObject('Blue_Banners/comboBoxArrow_Book'))
-		WebUI.click(findTestObject('Blue_Banners/list_Book_Parmed', [('book'):book]))
-	}
-
-	if (chapter != '' && chapter != null) {
-		//			WebUI.click(findTestObject('Blue_Banners/input_Chapter'))
-		WebUI.click(findTestObject('Blue_Banners/comboBoxArrow_Chapter'))
-		WebUI.click(findTestObject('Blue_Banners/list_Chapter_Parmed', [('chapter'):chapter]))
-	}
-
-	if (verse != '' && verse != null) {
-		//			WebUI.click(findTestObject('Blue_Banners/input_Verse'))
-		WebUI.click(findTestObject('Blue_Banners/comboBoxArrow_Verse'))
-		WebUI.click(findTestObject('Blue_Banners/list_Verse_Parmed', [('verse'):verse]))
-	}
-}
-
+WebUI.closeBrowser()
