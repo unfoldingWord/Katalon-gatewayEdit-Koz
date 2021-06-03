@@ -15,39 +15,48 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
-import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
-import org.openqa.selenium.WebDriver as WebDriver
-import javax.swing.*
-import org.openqa.selenium.Keys as Keys
+//import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
+//import org.openqa.selenium.WebDriver as WebDriver
+//import javax.swing.*
+//import org.openqa.selenium.Keys as Keys
 
-refs = [['luk', '24', '53'], ['rut', '3', '13'], ['1jn', '5', '15'], ['Romans', '16', '27'], ['neh', '12', '12'], ['rev'
-        , '9', '18']]
-refs = [['luk', '24', '53']]
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import com.kms.katalon.core.webui.driver.DriverFactory
 
-myElement = 'Page_Login/input_Username'
+WebUI.callTestCase(findTestCase('Components/LogIn'), [:])
 
-WebUI.openBrowser('https://gateway-edit.netlify.app/')
+cards = getCardMap()
 
-CustomKeywords.'unfoldingWord_Keywords.Copy_Text_to_Clipboard.copyText'('tc01')
+println(cards)
 
-WebUI.click(findTestObject(myElement))
+GlobalVariable.cards_Map_Current.each { id, title ->
+	println(id + ':' + title)
+}
 
-CustomKeywords.'unfoldingWord_Keywords.HotKeys.sendKeys'(myElement, 'paste')
+GlobalVariable.cards_Map_ID.each { num, id  ->
+	println(num + ':' + id)
+}
 
-WebUI.click(findTestObject(myElement))
-
-CustomKeywords.'unfoldingWord_Keywords.HotKeys.sendKeys'(myElement, 'all')
-
-CustomKeywords.'unfoldingWord_Keywords.Copy_Text_to_Clipboard.copyText'('')
-
-CustomKeywords.'unfoldingWord_Keywords.HotKeys.sendKeys'(myElement, 'paste')
-
-CustomKeywords.'unfoldingWord_Keywords.Copy_Text_to_Clipboard.copyText'('tcc001')
-
-WebUI.click(findTestObject(myElement))
-
-CustomKeywords.'unfoldingWord_Keywords.HotKeys.sendKeys'(myElement, 'paste')
-
-WebUI.delay(10)
-
-WebUI.closeBrowser()
+def getCardMap() {
+	def retCode
+	if (WebUI.verifyElementPresent(findTestObject('Page_Main/cards_Header_Parmed', [('number') : 1]), 1, FailureHandling.OPTIONAL)) {
+		//			cardExists = true
+		def n = 1
+		while (WebUI.verifyElementPresent(findTestObject('Page_Main/cards_Header_Parmed', [('number') : n]), 1, FailureHandling.OPTIONAL)) {
+			def title = (WebUI.getText(findTestObject('Page_Main/cards_Header_Parmed', [('number') : n]), FailureHandling.OPTIONAL))
+			def id = (WebUI.getAttribute(findTestObject('Page_Main/card_Full_Parmed', [('number') : n]), 'id', FailureHandling.OPTIONAL))
+			GlobalVariable.cards_Map_Current.putAt(n, title)
+			GlobalVariable.cards_Map_ID.putAt(n, id)
+			//				println(n + ' : ' + title)
+			retCode = true
+			n ++
+		}
+		retCode = n - 1
+	} else {
+		println('ERROR: Failed to find the first resource card')
+		retCode = 0
+	}
+	return retCode
+}

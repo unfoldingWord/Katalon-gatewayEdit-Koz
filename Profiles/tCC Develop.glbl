@@ -156,6 +156,11 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
+      <initValue>[:]</initValue>
+      <name>cards_Map_ID</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
       <initValue>''</initValue>
       <name>tNFormat</name>
    </GlobalVariableEntity>

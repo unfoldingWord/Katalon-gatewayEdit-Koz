@@ -28,7 +28,7 @@ import org.openqa.selenium.Keys as Keys
 
 import internal.GlobalVariable
 
-public class Scripture_Card {
+public class Scripture_Card_SAVE {
 	// RENAME TO SIMPLY "Scripture"
 	// ADD getScriptureReference()
 	// ADD setScriptureReference()
@@ -39,7 +39,7 @@ public class Scripture_Card {
 		def book = WebUI.getAttribute(findTestObject('Blue_Banners/input_Book'),'value')
 		def chapter = WebUI.getAttribute(findTestObject('Blue_Banners/input_Chapter'),'value')
 		def verse = WebUI.getAttribute(findTestObject('Blue_Banners/input_Verse'),'value')
-		def reference = book + ' ' + chapter + ':' + verse
+		def reference = chapter + ':' + verse
 
 		return [
 			book,
@@ -51,25 +51,8 @@ public class Scripture_Card {
 
 
 	@Keyword
-	// Set the scripture reference in the navigator bar by using the comboboxes
-	// If the book parameter is actually a full reference, use that. Otherwise use book, chapter, verse
-	def setScriptureReference(def myBook, def chapter = '', def verse = '') {
-		def book
-		if (myBook.length() > 3) {
-			book = myBook.substring(0,3)
-			def space = myBook.indexOf(' ')
-			def colon = myBook.indexOf(':')
-			if (colon > 0) {
-				chapter = myBook.substring(space + 1, colon)
-				verse = myBook.substring(colon + 1, myBook.length())
-			} else {
-				chapter = myBook.substring(space + 1, myBook.length())
-				verse = ''
-			}
-		} else {
-			book = myBook
-		}
-
+	// Set the scripture reference in the navigator bar
+	def setScriptureReference(def book, def chapter, def verse) {
 		if (book != '' && book != null) {
 			WebUI.click(findTestObject('Blue_Banners/comboBoxArrow_Book'))
 			WebUI.click(findTestObject('Blue_Banners/list_Book_Parmed', [('book'):book]))

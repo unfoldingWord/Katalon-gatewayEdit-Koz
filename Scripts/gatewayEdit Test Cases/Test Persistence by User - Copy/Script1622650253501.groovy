@@ -33,10 +33,8 @@ tabTest = false
 
 closeOpen = false
 
-issue219_fixed = false
-
 // Test scripture references
-refs = [['luk','24','53'], ['rut','3','13'], ['1jn','5','15'], ['rom','16','27'], ['neh','12','12'], ['rev','9','18']]
+refs = [['luk','24','53'], ['rut','3','13'], ['1jn','5','15'], ['rom','16','27'], ['neh','12,12'], ['rev','9','18']]
 	
 // Array of card id's and options
 cards = ['0':'Scripture','1':'Scripture','2':'Scripture','tn':'Markdown','ta':'Markdown','twl':'No_Markdown','twa':'Markdown','tq':'Markdown']
@@ -63,11 +61,7 @@ for (user in users) {
 	
 	first = true
 	
-	firstTnTest = true
-	
-	firstMdTest = true
-
-		while (loop <= loopMax) {
+	while (loop <= loopMax) {
 	
 		println('################ LOOP ' + loop)
 		
@@ -101,28 +95,6 @@ for (user in users) {
 			
 			// Markdown View switch
 			if (font == 'Markdown') {
-				if (firstMdTest && issue219_fixed) {
-					firstMdTest = false
-					WebDriver driver = DriverFactory.getWebDriver()
-					mdSwitch = driver.findElement(By.name('markdownView'))
-					wasState = mdSwitch.isSelected()
-					println('was state is ' + wasState)
-					mdSwitch.click()
-					WebUI.delay(10)
-					isState = mdSwitch.isSelected()
-					println('is state is ' + isState)
-					if (wasState == isState) {
-						msg = 'Test failed because the first markdown switch state was not changed.'
-						CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendFailMessage'(msg)
-					} else {
-						isState = mdSwitch.isSelected()
-						if (isState != wasState) {
-							msg = 'Test failed because the markdown switch state could not be changed twice without closing the settings card.'
-							CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendFailMessage'(msg)
-						}
-					}
-				}
-				
 				result = Math.abs(new Random().nextInt() % 2)
 				if (result == 1) {
 					newState = true
@@ -171,23 +143,9 @@ for (user in users) {
 				// Get a list of the tN columns
 				(columns, states, columnsMap) = CustomKeywords.'unfoldingWord_Keywords.Work_with_Settings_Card.getColumnsList'()
 				
-				// Test to ensure a single checkbox state and the markdown switch state can be switched twice without closing the settings card
-				if (firstTnTest && issue219_fixed) {
-					firstTnTest = false
-					wasState = columnsMaps[0]
-					columnsMap[0] = !wasState
-					CustomKeywords.'unfoldingWord_Keywords.Work_with_Settings_Card.setColumnStates'(columnsMap)
-					if (columnsMap[0] != wasState) {
-						msg = 'Test failed because the first column state was not changed.'
-						CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendFailMessage'(msg)
-					} else {
-						columnsMap[0] = wasState
-						CustomKeywords.'unfoldingWord_Keywords.Work_with_Settings_Card.setColumnStates'(columnsMap)
-						if (columnsMap[0] != wasState) {
-							msg = 'Test failed because the column state could not be changed twice without closing the settings card.'
-							CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendFailMessage'(msg)
-						}
-					}
+				if (firstTnTest) {
+					myState = columnsMaps[0]
+					
 				}
 				
 				offCount = 0
