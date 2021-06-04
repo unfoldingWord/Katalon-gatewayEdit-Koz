@@ -28,7 +28,7 @@ import org.openqa.selenium.Keys as Keys
 
 import internal.GlobalVariable
 
-public class Scripture_Card {
+public class Scripture_Card_SAVE2 {
 	// RENAME TO SIMPLY "Scripture"
 	// ADD getScriptureReference()
 	// ADD setScriptureReference()
@@ -109,49 +109,38 @@ public class Scripture_Card {
 	// CustomKeywords.'unfoldingWord_Keywords.Resources_Layout.getCardMap'() to populate the map of cards on the page
 
 	// Input parameter 'cardID' can either be the number of the scripture card or unique partial text of the scripture card title (e.g. 'Leteral Text')
-	def getScriptureWordsandHighlights(def cardID) {
+	def getScriptureWordsandHighlights(cardID) {
 
-		def msg
 		// Get card number if input parameter is a string
-		def x_path // This is the xpath of the (parent) span that contains the (child) spans of the individual words in the scripture text
-		if (cardID instanceof String) { // cardID is the id attribute of the scripture card
-			x_path = "//div[@id='${cardID}']/div[3]/div/span/span[2]"
-			msg = 'card id ' + cardID
-		} else { // cardID is the card number of the scripture card
-			int cardNumber = cardID
-			x_path = "/html/body/div[1]/div/main/div/div/div[1]/div/div/div[3]/div/span/span[2]"
-			msg = 'card number ' + cardID
+		def cardNumber
+		if (cardID instanceof String) {
+			cardNumber = GlobalVariable.cards_Map_Current.find { it.value.contains('Literal Text') }?.key
+		} else {
+			cardNumber = cardID
 		}
-		println('Retrieving text from ' + msg)
-		
+
+		// This is the xpath of the (parent) span that contains the (child) spans of the individual words in the scripture text
+		def x_path = "/html/body/div[1]/div/main/div/div/div[${cardNumber}]/div/div/div[2]/div/span/span[2]"
 		def words = []
 		def highlights = []
-		//	List<WebElement>  = []
-		List<WebElement> myElements = []
+		def List<WebElement> elements = []
 
 		WebDriver driver = DriverFactory.getWebDriver()
 		// verse is the parent span
 		WebElement verse =  driver.findElement(By.xpath(x_path))
-		println(verse.getText() + ' is the text on ' + msg)
 		// elements is an array of the child spans
-		//		List<WebElement> elements = verse.findElements(By.tagName('span'))
-		List<WebElement> elements = verse.findElements(By.tagName('span'))
-		println(elements.size() + ' elements were found on ' + msg)
-		def lastWord = ''
+//		List<WebElement> elements = verse.findElements(By.tagName('span'))
+		elements = verse.findElements(By.tagName('span'))
+		
 		for (element in elements) {
 			def word = element.text
-			if(word.length() >= 1 && word != lastWord) {
+			if(word.length() >= 1) {
+				elements.add(element)
 				words.add(word)
 				highlights.add(element.getAttribute('data-testselected'))
-				myElements.add(element)
-				lastWord = word
 			}
 		}
-		return [
-			words,
-			highlights,
-			myElements
-		]
+		return [words, highlights, elements]
 	}
 
 }

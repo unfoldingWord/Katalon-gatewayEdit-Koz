@@ -24,7 +24,7 @@ println(retValue + 'cards were found')
 
 GlobalVariable.cards_Map_Current.each { key, val ->
 	println "number: $key title = $val"
-	WebUI.click(findTestObject('Page_Main/cards_3dotMenu_Parmed', [('number') : key]))
+	WebUI.click(findTestObject('Page_Main/card_3dotMenu_Parmed', [('number') : key]))
 	WebUI.delay(2)
 	WebUI.click(findTestObject('Card_Settings/button_Settings_Close'))
 	WebUI.delay(1)

@@ -24,9 +24,9 @@
       <testCaseId>Test Cases/gatewayEdit Test Cases/Test tN Checkbox Persistence</testCaseId>
    </testCaseLink>
    <testCaseLink>
-      <guid>3134bb69-f730-4e31-b5ef-f33ce785d4bc</guid>
+      <guid>7cb7161a-449e-4863-a6a2-1433bcd661f4</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/gatewayEdit Test Cases/Test Pasting Reference</testCaseId>
+      <testCaseId>Test Cases/gatewayEdit Test Cases/Test Scripture Navigation</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>

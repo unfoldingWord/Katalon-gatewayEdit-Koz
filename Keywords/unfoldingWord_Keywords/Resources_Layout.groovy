@@ -48,11 +48,11 @@ class Resources_Layout {
 	// Load the Global Variable "cards_Map_ID" (Will contain the number and id of all cards on the page)
 	def getCardMap() {
 		def retCode
-		if (WebUI.verifyElementPresent(findTestObject('Page_Main/cards_Header_Parmed', [('number') : 1]), 1, FailureHandling.OPTIONAL)) {
+		if (WebUI.verifyElementPresent(findTestObject('Page_Main/card_Header_Parmed', [('number') : 1]), 1, FailureHandling.OPTIONAL)) {
 			//			cardExists = true
 			def n = 1
-			while (WebUI.verifyElementPresent(findTestObject('Page_Main/cards_Header_Parmed', [('number') : n]), 1, FailureHandling.OPTIONAL)) {
-				def title = (WebUI.getText(findTestObject('Page_Main/cards_Header_Parmed', [('number') : n]), FailureHandling.OPTIONAL))
+			while (WebUI.verifyElementPresent(findTestObject('Page_Main/card_Header_Parmed', [('number') : n]), 1, FailureHandling.OPTIONAL)) {
+				def title = (WebUI.getText(findTestObject('Page_Main/card_Header_Parmed', [('number') : n]), FailureHandling.OPTIONAL))
 				def id = (WebUI.getAttribute(findTestObject('Page_Main/card_Full_Parmed', [('number') : n]), 'id', FailureHandling.OPTIONAL))
 				GlobalVariable.cards_Map_Current.putAt(n, title)
 				GlobalVariable.cards_Map_ID.putAt(n, id)

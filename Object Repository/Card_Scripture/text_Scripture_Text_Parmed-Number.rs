@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>text_Scripture_Text_Parmed</name>
+   <name>text_Scripture_Text_Parmed-Number</name>
    <tag></tag>
    <elementGuidId>3107341f-7cbc-4238-96fb-5f63304e5e1d</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>/html/body/div[1]/div/main/div/div/div[${cardNumber}]/div/div/div[2]/div/span/span[2]</value>
+         <value>/html/body/div[1]/div/main/div/div/div[${cardNumber]/div/div/div[3]/div/span/span[2]</value>
       </entry>
       <entry>
          <key>CSS</key>

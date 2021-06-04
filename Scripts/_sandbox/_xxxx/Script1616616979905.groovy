@@ -18,45 +18,19 @@ import internal.GlobalVariable as GlobalVariable
 //import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 //import org.openqa.selenium.WebDriver as WebDriver
 //import javax.swing.*
-//import org.openqa.selenium.Keys as Keys
+import org.openqa.selenium.Keys as Keys
+import org.openqa.selenium.By as By
+import org.openqa.selenium.WebDriver as WebDriver
+import org.openqa.selenium.WebElement as WebElement
+import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 
-import org.openqa.selenium.By
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
-import com.kms.katalon.core.webui.driver.DriverFactory
+refs = ['tit 2:6', 'rut 1:10']
 
-WebUI.callTestCase(findTestCase('Components/LogIn'), [:])
+last = refs[refs.size()-1]
 
-cards = getCardMap()
-
-println(cards)
-
-GlobalVariable.cards_Map_Current.each { id, title ->
-	println(id + ':' + title)
-}
-
-GlobalVariable.cards_Map_ID.each { num, id  ->
-	println(num + ':' + id)
-}
-
-def getCardMap() {
-	def retCode
-	if (WebUI.verifyElementPresent(findTestObject('Page_Main/cards_Header_Parmed', [('number') : 1]), 1, FailureHandling.OPTIONAL)) {
-		//			cardExists = true
-		def n = 1
-		while (WebUI.verifyElementPresent(findTestObject('Page_Main/cards_Header_Parmed', [('number') : n]), 1, FailureHandling.OPTIONAL)) {
-			def title = (WebUI.getText(findTestObject('Page_Main/cards_Header_Parmed', [('number') : n]), FailureHandling.OPTIONAL))
-			def id = (WebUI.getAttribute(findTestObject('Page_Main/card_Full_Parmed', [('number') : n]), 'id', FailureHandling.OPTIONAL))
-			GlobalVariable.cards_Map_Current.putAt(n, title)
-			GlobalVariable.cards_Map_ID.putAt(n, id)
-			//				println(n + ' : ' + title)
-			retCode = true
-			n ++
-		}
-		retCode = n - 1
-	} else {
-		println('ERROR: Failed to find the first resource card')
-		retCode = 0
+//refs.each { 
+for (ref in refs) {
+	if (ref != last) {
+		println(ref)
 	}
-	return retCode
 }

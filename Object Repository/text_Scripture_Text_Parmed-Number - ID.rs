@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>cards_3dotMenu_Parmed</name>
+   <name>text_Scripture_Text_Parmed-Number - ID</name>
    <tag></tag>
-   <elementGuidId>b5458605-120f-43b3-af00-c41beca25ac4</elementGuidId>
+   <elementGuidId>e1747c8d-ff9f-427a-b95d-07a9324d8dfc</elementGuidId>
    <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@id='${cardID}']/div[3]/div/span/span[2]</value>
+      </entry>
       <entry>
          <key>CSS</key>
          <value></value>
-      </entry>
-      <entry>
-         <key>XPATH</key>
-         <value>//div[@id='__next']/div/main/div/div/div[${number}]/div/div/div/div[3]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <useRalativeImagePath>true</useRalativeImagePath>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>div</value>
+      <value>span</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>class</name>
+      <name>text</name>
       <type>Main</type>
-      <value>sc-eCssSg hmocIu</value>
+      <value>The book of the genealogy of Jesus Christ, son of David, son of Abraham.</value>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;__next&quot;)/div[@class=&quot;h-screen w-screen flex flex-col&quot;]/main[@class=&quot;flex flex-1 flex-col w-auto m-0 bg-gray-200&quot;]/div[@class=&quot;sc-gsTCUz bvSpZM&quot;]/div[@class=&quot;react-grid-layout&quot;]/div[@class=&quot;sc-dlfnbm bcaJjD react-grid-item react-draggable cssTransforms react-resizable&quot;]/div[@class=&quot;sc-hKgILt gTLZXx&quot;]/div[@class=&quot;sc-bdfBwQ cIKpxU jss34&quot;]/div[@class=&quot;sc-jSgupP ckDfJz&quot;]/div[@class=&quot;sc-eCssSg hmocIu&quot;]</value>
+      <value>id(&quot;scripture_card_0&quot;)/div[@class=&quot;jss37 undefined&quot;]/div[@class=&quot;sc-dIsUp jEEywD&quot;]/span[@class=&quot;sc-ksluID kFmqyc&quot;]/span[2]</value>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//div[@id='__next']/div/main/div/div/div[2]/div/div/div/div[3]</value>
+      <value>//div[@id='scripture_card_0']/div[3]/div/span/span[2]</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='unfoldingWord® Greek New Testament v0.18'])[1]/following::div[2]</value>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='unfoldingWord® Literal Text v16'])[1]/following::span[3]</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Abraham'])[1]/following::div[9]</value>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)=':'])[1]/following::span[9]</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='βίβλος'])[1]/preceding::div[1]</value>
+      <value>//*/text()[normalize-space(.)=',']/parent::*</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[2]/div/div/div/div[3]</value>
+      <value>//span/span[2]</value>
    </webElementXpaths>
 </WebElementEntity>

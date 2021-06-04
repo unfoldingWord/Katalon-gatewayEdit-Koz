@@ -31,7 +31,7 @@ println('return value is ' + retValue)
 GlobalVariable.cards_Map_Current.each { key, val ->
 	println "number: $key title = $val"
 	if (1 == 2) {
-		WebUI.click(findTestObject('Page_Main/cards_3dotMenu_Parmed', [('number') : key]))
+		WebUI.click(findTestObject('Page_Main/card_3dotMenu_Parmed', [('number') : key]))
 		WebUI.delay(2)
 	//	WebUI.clickOffset(findTestObject('Blue_Banners/text_Application_Name', 0, 0))
 		WebUI.clickOffset(findTestObject('Blue_Banners/text_Application_Name'), 0, 0)
@@ -46,11 +46,11 @@ WebUI.closeBrowser()
 def getCardMap() {
 	def retCode
 	int n
-	if (WebUI.verifyElementPresent(findTestObject('Page_Main/cards_Header_Parmed', [('number') : 1]), 1, FailureHandling.OPTIONAL)) {
+	if (WebUI.verifyElementPresent(findTestObject('Page_Main/card_Header_Parmed', [('number') : 1]), 1, FailureHandling.OPTIONAL)) {
 	//			cardExists = true
 		for (n = 1; n < 30; n++) {
-			if (WebUI.verifyElementPresent(findTestObject('Page_Main/cards_Header_Parmed', [('number') : n]), 1, FailureHandling.OPTIONAL)) {
-				def title = (WebUI.getText(findTestObject('Page_Main/cards_Header_Parmed', [('number') : n]), FailureHandling.OPTIONAL))
+			if (WebUI.verifyElementPresent(findTestObject('Page_Main/card_Header_Parmed', [('number') : n]), 1, FailureHandling.OPTIONAL)) {
+				def title = (WebUI.getText(findTestObject('Page_Main/card_Header_Parmed', [('number') : n]), FailureHandling.OPTIONAL))
 				GlobalVariable.cards_Map_Current.putAt(n, title)
 				//				println(n + ' : ' + title)
 				retCode = true

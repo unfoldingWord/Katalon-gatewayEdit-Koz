@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>cards_Header_Parmed</name>
+   <name>card_Header_Parmed</name>
    <tag></tag>
    <elementGuidId>f86b4ebb-9905-4a00-9f70-ed6ec0fcad08</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>div.sc-crrsfI.iDhzRL</value>
-      </entry>
-      <entry>
          <key>XPATH</key>
          <value>/html/body/div[1]/div/main/div/div/div[${number}]/div/div/div[1]/div[1]/div</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>div.sc-crrsfI.iDhzRL</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
