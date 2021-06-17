@@ -15,22 +15,50 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
-//import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
-//import org.openqa.selenium.WebDriver as WebDriver
-//import javax.swing.*
 import org.openqa.selenium.Keys as Keys
 import org.openqa.selenium.By as By
 import org.openqa.selenium.WebDriver as WebDriver
 import org.openqa.selenium.WebElement as WebElement
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
+import groovy.time.*
 
-refs = ['tit 2:6', 'rut 1:10']
-
-last = refs[refs.size()-1]
-
-//refs.each { 
-for (ref in refs) {
-	if (ref != last) {
-		println(ref)
-	}
+myHighlights = [false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+true,
+true,
+true,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+]
+myHighlights.each {
+	println(it)
+}
+i = 0
+while (i < myHighlights.size()) {
+	Boolean highlight = myHighlights[i]
+	println('highlight  ' + i + ' is ' + highlight)
+	i ++
 }

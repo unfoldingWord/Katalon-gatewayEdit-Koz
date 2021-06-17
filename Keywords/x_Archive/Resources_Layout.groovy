@@ -1,4 +1,4 @@
-package unfoldingWord_Keywords
+package x_Archive
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -44,51 +44,27 @@ import com.kms.katalon.core.webui.exception.WebElementNotFoundException
 class Resources_Layout {
 
 	@Keyword
-	// Load the Global Variable "cards_Map_ID" (Will contain the title and id of all cards on the page)
+	// Load the Global Variable "cards_Map_Current" (Will contain the number and title of all cards on the page)
+	// Load the Global Variable "cards_Map_ID" (Will contain the number and id of all cards on the page)
 	def getCardMap() {
 		def retCode
 		if (WebUI.verifyElementPresent(findTestObject('Page_Main/card_Header_Parmed', [('number') : 1]), 1, FailureHandling.OPTIONAL)) {
 			//			cardExists = true
-			WebDriver driver = DriverFactory.getWebDriver()
-			def x_path = "//*[@class = 'sc-bdnxRM jvCTkj jss31']"
-			List<WebElement> cards =  driver.findElements(By.xpath(x_path))
-
-			for (card in cards) {
-				def id = card.getAttribute('id')
-				def text = card.getText()
-				List myText = text.split( '\n' )
-				def title = myText[0]
-				GlobalVariable.cards_Map_ID.putAt(title, id)
+			def n = 1
+			while (WebUI.verifyElementPresent(findTestObject('Page_Main/card_Header_Parmed', [('number') : n]), 1, FailureHandling.OPTIONAL)) {
+				def title = (WebUI.getText(findTestObject('Page_Main/card_Header_Parmed', [('number') : n]), FailureHandling.OPTIONAL))
+				def id = (WebUI.getAttribute(findTestObject('Page_Main/card_Full_Parmed', [('number') : n]), 'id', FailureHandling.OPTIONAL))
+				GlobalVariable.cards_Map_Current.putAt(n, title)
+				GlobalVariable.cards_Map_ID.putAt(n, id)
+				retCode = true
+				n ++
 			}
-			retCode = true
-
+			retCode = n - 1
 		} else {
 			println('ERROR: Failed to find the first resource card')
-			retCode = false
+			retCode = 0
 		}
 		return retCode
-	}
-
-
-	@Keyword
-	// Get the ID of any cards containing the text parameter in the title of the card
-	def getCardIDsByTitle(text) {
-
-		def cardIDs = []
-		GlobalVariable.cards_Map_ID.each{ key, value ->
-			if (key.contains(text)) {
-				cardIDs.add(value)
-			}
-		}
-		return cardIDs
-	}
-
-	@Keyword
-	// Get the ID of any cards containing the text parameter in the title of the card
-	def static getCardTitleByID(cardID) {
-
-		def title = GlobalVariable.cards_Map_ID.find{ it.value == cardID }?.key
-		return title
 	}
 
 }

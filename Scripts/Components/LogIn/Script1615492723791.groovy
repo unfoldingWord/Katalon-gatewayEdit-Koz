@@ -99,3 +99,5 @@ if (WebUI.verifyElementPresent(findTestObject('Card_tN/text_tN_Reference'), 1, F
 	GlobalVariable.tNFormat = 'Old'
 }
 
+CustomKeywords.'unfoldingWord_Keywords.Resources_Layout.getCardMap'()
+

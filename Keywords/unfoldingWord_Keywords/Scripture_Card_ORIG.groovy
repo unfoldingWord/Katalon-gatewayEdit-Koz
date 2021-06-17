@@ -28,7 +28,7 @@ import org.openqa.selenium.Keys as Keys
 
 import internal.GlobalVariable
 
-public class Scripture_Card_SAVE {
+public class Scripture_Card_ORIG {
 	// RENAME TO SIMPLY "Scripture"
 	// ADD getScriptureReference()
 	// ADD setScriptureReference()
@@ -112,15 +112,28 @@ public class Scripture_Card_SAVE {
 		WebElement verse =  driver.findElement(By.xpath(x_path))
 		// elements is an array of the child spans
 		List<WebElement> elements = verse.findElements(By.tagName('span'))
-
-		for (element in elements) {
-			def word = element.text
-			if(word.length() >= 1) {
-				words.add(word)
-				highlights.add(element.getAttribute('data-testselected'))
+		
+		if (cardNumber == 1) {
+			for (element in elements) {
+				def word = element.text
+				if(word.length() >= 1) {
+					words.add(word)
+					List<WebElement> span = element.findElements(By.tagName('span'))
+					highlights.add(span.getAttribute('data-testselected'))
+				}
 			}
+	
+		} else {
+
+			for (element in elements) {
+				def word = element.text
+				if(word.length() >= 1) {
+					words.add(word)
+					highlights.add(element.getAttribute('data-testselected'))
+				}
+			}
+			return [words, highlights]
 		}
-		return [words, highlights]
 	}
 
 }

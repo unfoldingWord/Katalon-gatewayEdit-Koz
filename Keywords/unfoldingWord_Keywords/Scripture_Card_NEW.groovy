@@ -22,18 +22,17 @@ import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import com.kms.katalon.core.webui.driver.DriverFactory
-import org.openqa.selenium.interactions.Actions as Actions
-
+//import org.openqa.selenium.interactions.Actions as Actions
 
 import org.openqa.selenium.Keys as Keys
-
+import java.time.LocalDateTime; // Import the LocalDateTime class
+import java.time.format.DateTimeFormatter; // Import the DateTimeFormatter class
+import java.io.File as File
 
 import internal.GlobalVariable
 
-public class Scripture_Card {
+public class Scripture_Card_NEW {
 	// RENAME TO SIMPLY "Scripture"
-	// ADD getScriptureReference()
-	// ADD setScriptureReference()
 
 	@Keyword
 	// Get the scripture reference from the navigator bar
@@ -106,7 +105,105 @@ public class Scripture_Card {
 
 	@Keyword
 
-	// Returns arrays containing all of the words and the words' highlight statuses of the text on a scripture card
+	def testForHighlighting(def cardID, List words, List occurrences, write = false) {
+
+		def now = new Date()
+		def myFile = cardID
+		//nFormat = ('MMddyyhhmmss')
+		def fName = (((('highlights_' + myFile) + '-') + now.format('MMddyyhhmmss')) + '.txt')
+		String logsDir = '/Users/' + GlobalVariable.pcUser + GlobalVariable.logsDir
+		def oFile = new File(logsDir + '/' + fName)
+
+		List myWords
+		List myHighlights
+		List myElements
+		def msg
+
+		(myWords, myHighlights, myElements) = getScriptureWordsandHighlights(cardID)
+
+		def title = Resources_Layout.getCardTitleByID(cardID)
+
+		def ol = testForOriginalLanguage(cardID)
+
+		if (write) {
+			oFile.append(title)
+			oFile.append(myWords)
+			oFile.append(myHighlights)
+		}
+
+		if (myWords.size() > 0 && myHighlights.size() > 0) {
+
+			List shouldBeHighlighted = []
+			def i = 0
+			//	for (def word in words) {	// Words that should be highlighted
+			words.each { word ->
+				if (!ol) {
+					word = word.toLowerCase()
+				}
+				List indexes = myWords.findIndexValues {
+					it == word
+				}
+				//			println(word + ':' + indexes)
+				Integer occurrence = occurrences[i]
+				//			println(occurrence)
+				Integer index = (indexes[occurrence-1])	// Occurrence number converted to array index
+				//			println(index)
+				shouldBeHighlighted.add(index)
+				i ++
+			}
+			//		println(shouldBeHighlighted)
+
+			def errorCount = 0
+			i = 0
+			def ii
+			//	for (word in myWords) {
+			myWords.each { word ->
+				Boolean errFlag = false
+				ii = i + 1
+				def highlight = Boolean.valueOf(myHighlights[i])
+				if(i in shouldBeHighlighted) {
+					if (highlight == false) {
+						msg = 'Word number ' + ii + ', "' + word + '" should be hightlighted in ' + title + ' but it is not.'
+						errorCount ++
+						errFlag = true
+					} else {
+						msg = 'Word number ' + ii + ', "' + word + '" is correctly hightlighted in ' + title + '.'
+					}
+				} else {
+					if (highlight == true) {
+						msg = 'Word number ' + ii + ', "' + word + '" should not be hightlighted in ' + title + ' but it is.'
+						errorCount ++
+						errFlag = true
+					} else {
+						msg = 'Word number ' + ii + ', "' + word + '" is correctly not hightlighted in ' + title + '.'
+					}
+				}
+
+				println(msg)
+				if (write) {
+					oFile.append(msg)
+				}
+
+				if (errFlag) {
+					SendMessage.SendFailMessage(msg)
+				}
+
+				i ++
+			}
+		} else {
+			msg = '=======> ERROR:  (Issue 236) Could not check for highlights because no word spans were found in the ' + title
+			println(msg)
+			if (write) {
+				oFile.append(msg)
+			}
+			SendMessage.SendFailMessage(msg)
+		}
+	}
+
+
+	@Keyword
+
+	// Returns arrays containing all of the words, the words' highlight statuses, and selenium elements of the text on a scripture card
 	// Prerequisites:
 	// CustomKeywords.'unfoldingWord_Keywords.Resources_Layout.getCardMap'() to populate the map of cards on the page
 
@@ -114,49 +211,79 @@ public class Scripture_Card {
 	def getScriptureWordsandHighlights(def cardID) {
 
 		def msg
-		// Get card number if input parameter is a string
 		def x_path // This is the xpath of the (parent) span that contains the (child) spans of the individual words in the scripture text
-		if (cardID instanceof String) { // cardID is the id attribute of the scripture card
-			x_path = "//div[@id='${cardID}']/div[3]/div/span/span[2]"
-			msg = 'card id ' + cardID
-		} else { // cardID is the card number of the scripture card
-			int cardNumber = cardID
-			x_path = "/html/body/div[1]/div/main/div/div/div[1]/div/div/div[3]/div/span/span[2]"
-			msg = 'card number ' + cardID
-		}
-		println('Retrieving text from ' + msg)
+		x_path = "//div[@id='${cardID}']/div[3]/div/span/span[2]"
+		println('Retrieving text from ' + cardID)
 
 		def words = []
-		def highlights = []
+		List highlights = []
 		//	List<WebElement>  = []
 		List<WebElement> myElements = []
 
 		WebDriver driver = DriverFactory.getWebDriver()
-		Actions actions = new Actions(driver)
+		//		Actions actions = new Actions(driver)
+
 		// verse is the parent span
 		WebElement verse =  driver.findElement(By.xpath(x_path))
-		println(verse.getText() + ' is the text on ' + msg)
+		println(verse.getText() + ' is the text on ' + cardID)
+
 		// elements is an array of the child spans
-		//		List<WebElement> elements = verse.findElements(By.tagName('span'))
 		List<WebElement> elements = verse.findElements(By.tagName('span'))
-		println(elements.size() + ' elements were found on ' + msg)
+		println(elements.size() + ' elements were found on ' + cardID)
+
+
+
 		def lastWord = ''
-		for (element in elements) {
-			def word = element.text
-			if(word.length() >= 1 && word != lastWord) {
-				words.add(word)
-				highlights.add(element.getAttribute('data-testselected'))
-				//				TestObject nextWord = WebUI.convertWebElementToTestObject(element)
-				//				highlights.add(WebUI.getAttribute(nextWord), 'data-testselected')
-				myElements.add(element)
-				lastWord = word
+
+		def ol = testForOriginalLanguage(cardID)
+
+		if (ol) {
+			println('Original Language card')
+			for (element in elements) {
+				def word = element.text.replaceAll("\\p{P}+", "")
+				if(word.length() >= 1) { // && i < elements.size()/2 ) {
+					def highlighted = element.getAttribute('data-testselected')
+					//					def hBool = Boolean.valueOf(highlighted)
+					if (highlighted != null) {
+						words.add(word)
+						highlights.add(highlighted)
+					}
+				}
+			}
+
+		} else {
+			println('Not an original language card')
+			for (element in elements) {
+				def word = element.text.replaceAll("\\p{P}+", "")
+				if(word.length() >= 1 ) {
+					words.add(word.toLowerCase())
+					highlights.add(element.getAttribute('data-testselected'))
+				}
 			}
 		}
+
 		return [
 			words,
 			highlights,
 			myElements
 		]
 	}
+
+
+	@Keyword
+
+	// Returns true if the selected scripture pane is an original language, else returns false
+	def testForOriginalLanguage(def cardID) {
+		def retCode
+		def myKey = GlobalVariable.cards_Map_ID.find{ it.value == cardID }?.key
+		if (myKey.contains('Greek') || myKey.contains('Hebrew')) {
+			retCode = true
+		} else {
+			retCode = false
+		}
+
+		return retCode
+	}
+
 
 }

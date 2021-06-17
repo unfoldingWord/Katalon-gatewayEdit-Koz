@@ -56,6 +56,7 @@ class Test_Case_Setup {
 			println('User is ' + GlobalVariable.pcUser)
 		}
 		GlobalVariable.scriptRunning = true
+		
 		println('setup success')
 	}
 }

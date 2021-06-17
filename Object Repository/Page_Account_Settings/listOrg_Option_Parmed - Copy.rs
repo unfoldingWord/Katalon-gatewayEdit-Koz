@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>listOrg_Option_Parmed</name>
+   <name>listOrg_Option_Parmed - Copy</name>
    <tag></tag>
-   <elementGuidId>24eae1ef-db23-488f-b7f3-c42dfa66cc76</elementGuidId>
+   <elementGuidId>0e1dddba-1a3d-4507-8469-9abd21a0a116</elementGuidId>
    <selectorCollection>
-      <entry>
-         <key>BASIC</key>
-         <value>//*[@class = 'MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button' and @data-value = '${organization}']</value>
-      </entry>
       <entry>
          <key>XPATH</key>
          <value>//div[@id='menu-']/div[3]/ul/li[2]</value>
@@ -55,14 +51,14 @@
       <value>false</value>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>data-value</name>
       <type>Main</type>
-      <value>${organization}</value>
+      <value>translate_test</value>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>false</isSelected>
+      <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>

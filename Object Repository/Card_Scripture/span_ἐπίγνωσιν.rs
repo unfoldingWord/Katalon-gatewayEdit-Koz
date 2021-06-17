@@ -1,96 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>text_tWArticle_N-of-N</name>
+   <name>span_ἐπίγνωσιν</name>
    <tag></tag>
-   <elementGuidId>2c053146-fc40-41ad-a45c-2357facbd70b</elementGuidId>
+   <elementGuidId>ee93b262-a824-45c1-acee-f1aaedaa0ea1</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//div[@id='__next']/div/main/div/div/div[7]/div/div/div/div[2]/div/div</value>
+         <value>//div[@id='scripture_card_1']/div[3]/div/span/span[2]/span[13]/span</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value></value>
+         <value>span.jss57 > span.jss60</value>
+      </entry>
+      <entry>
+         <key>BASIC</key>
+         <value>//*[(text() = 'ἐπίγνωσιν' or . = 'ἐπίγνωσιν')]</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>true</useRalativeImagePath>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>div</value>
+      <value>span</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-test</name>
+      <type>Main</type>
+      <value>aligned-word-object</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-testselected</name>
+      <type>Main</type>
+      <value>true</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>sc-eCssSg hmocIu</value>
+      <value>jss60</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>3 of 12</value>
+      <value>ἐπίγνωσιν</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;__next&quot;)/div[@class=&quot;h-screen w-screen flex flex-col&quot;]/main[@class=&quot;flex flex-1 flex-col w-auto m-0 bg-gray-200&quot;]/div[@class=&quot;sc-gsTCUz bvSpZM&quot;]/div[@class=&quot;react-grid-layout&quot;]/div[@class=&quot;sc-dlfnbm bcaJjD react-grid-item react-draggable cssTransforms react-resizable&quot;]/div[@class=&quot;sc-hKgILt gTLZXx&quot;]/div[@class=&quot;sc-bdfBwQ cIKpxU jss69&quot;]/div[@class=&quot;sc-jSgupP ckDfJz&quot;]/div[@class=&quot;sc-eCssSg hmocIu&quot;]/div[@class=&quot;sc-jSgupP ckDfJz&quot;]/div[@class=&quot;sc-eCssSg hmocIu&quot;]</value>
+      <value>id(&quot;scripture_card_1&quot;)/div[@class=&quot;jss37 undefined&quot;]/div[@class=&quot;sc-dIsUp jEEywD&quot;]/span[@class=&quot;sc-ksluID kFmqyc&quot;]/span[2]/span[@class=&quot;jss57&quot;]/span[@class=&quot;jss60&quot;]</value>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//div[@id='__next']/div/main/div/div/div[7]/div/div/div/div[2]/div/div</value>
+      <value>//div[@id='scripture_card_1']/div[3]/div/span/span[2]/span[13]/span</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='translationWords Article'])[1]/following::div[3]</value>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='καὶ'])[1]/following::span[2]</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='εὐσέβειαν'])[2]/following::div[9]</value>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Θεοῦ'])[2]/following::span[4]</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='God'])[6]/preceding::div[2]</value>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='ἀληθείας'])[1]/preceding::span[1]</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Definition:'])[1]/preceding::div[2]</value>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='τῆς'])[1]/preceding::span[3]</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='3 of 12']/parent::*</value>
+      <value>//*/text()[normalize-space(.)='ἐπίγνωσιν']/parent::*</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[7]/div/div/div/div[2]/div/div</value>
+      <value>//span[13]/span</value>
    </webElementXpaths>
 </WebElementEntity>
