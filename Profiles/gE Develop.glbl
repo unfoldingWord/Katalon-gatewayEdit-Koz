@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GlobalVariableEntities>
    <description></description>
-   <name>tCC Develop</name>
+   <name>gE Develop</name>
    <tag></tag>
    <defaultProfile>true</defaultProfile>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'https://gateway-edit.netlify.app'</initValue>
+      <initValue>'https://develop--gateway-edit.netlify.app'</initValue>
       <name>url</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>_xxxx</name>
+   <name>Verify image</name>
    <tag></tag>
    <comment></comment>
    <testCaseGuid>e3a45c19-ad12-4470-87e0-4557a6d2f77c</testCaseGuid>

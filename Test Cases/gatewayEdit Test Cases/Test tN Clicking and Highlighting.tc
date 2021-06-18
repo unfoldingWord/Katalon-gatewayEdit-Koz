@@ -2,7 +2,7 @@
 <TestCaseEntity>
    <description></description>
    <name>Test tN Clicking and Highlighting</name>
-   <tag></tag>
+   <tag>Issues: 90, 176</tag>
    <comment></comment>
    <testCaseGuid>1d4c01b9-1ea7-4583-bbb7-09b97954632a</testCaseGuid>
 </TestCaseEntity>

@@ -22,14 +22,16 @@ import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import com.kms.katalon.core.webui.driver.DriverFactory
-//import org.openqa.selenium.interactions.Actions as Actions
 
 import org.openqa.selenium.Keys as Keys
 
+
 import internal.GlobalVariable
 
-public class Scripture_Card_NEW {
+public class Scripture_Card_ORIG {
 	// RENAME TO SIMPLY "Scripture"
+	// ADD getScriptureReference()
+	// ADD setScriptureReference()
 
 	@Keyword
 	// Get the scripture reference from the navigator bar
@@ -37,7 +39,7 @@ public class Scripture_Card_NEW {
 		def book = WebUI.getAttribute(findTestObject('Blue_Banners/input_Book'),'value')
 		def chapter = WebUI.getAttribute(findTestObject('Blue_Banners/input_Chapter'),'value')
 		def verse = WebUI.getAttribute(findTestObject('Blue_Banners/input_Verse'),'value')
-		def reference = book + ' ' + chapter + ':' + verse
+		def reference = chapter + ':' + verse
 
 		return [
 			book,
@@ -49,25 +51,8 @@ public class Scripture_Card_NEW {
 
 
 	@Keyword
-	// Set the scripture reference in the navigator bar by using the comboboxes
-	// If the book parameter is actually a full reference, use that. Otherwise use book, chapter, verse
-	def setScriptureReference(def myBook, def chapter = '', def verse = '') {
-		def book
-		if (myBook.length() > 3) {
-			book = myBook.substring(0,3)
-			def space = myBook.indexOf(' ')
-			def colon = myBook.indexOf(':')
-			if (colon > 0) {
-				chapter = myBook.substring(space + 1, colon)
-				verse = myBook.substring(colon + 1, myBook.length())
-			} else {
-				chapter = myBook.substring(space + 1, myBook.length())
-				verse = ''
-			}
-		} else {
-			book = myBook
-		}
-
+	// Set the scripture reference in the navigator bar
+	def setScriptureReference(def book, def chapter, def verse) {
 		if (book != '' && book != null) {
 			WebUI.click(findTestObject('Blue_Banners/comboBoxArrow_Book'))
 			WebUI.click(findTestObject('Blue_Banners/list_Book_Parmed', [('book'):book]))
@@ -101,80 +86,45 @@ public class Scripture_Card_NEW {
 	}
 
 	@Keyword
-	
-	// Returns an array of highlighted statuses 
-	def testForHighlighting(def cardID, List words, List occurrences) {
-		
-		List myWords
-		List myHighlights
-		List myElements
-		(myWords, myHighlights, myElements) = getScriptureWordsandHighlights(cardID)
-		List retList = []
-		def i
-		i = 0
-		for (def word in words) {
-			List indexes = myWords.findIndexValues {
-				it == word
-			}
-			Integer occurrence = occurrences[i]
-			Integer index = (indexes[occurrence-1])
-			Boolean highlight = myHighlights[index]
-			retList.add(highlight)
-			i ++
-		}
-		return retList
-	}
-	
-	
-	@Keyword
 
-	// Returns arrays containing all of the words, the words' highlight statuses, and selenium elements of the text on a scripture card
+	// Returns arrays containing all of the words and the words' highlight statuses of the text on a scripture card
 	// Prerequisites:
 	// CustomKeywords.'unfoldingWord_Keywords.Resources_Layout.getCardMap'() to populate the map of cards on the page
 
 	// Input parameter 'cardID' can either be the number of the scripture card or unique partial text of the scripture card title (e.g. 'Leteral Text')
-	def getScriptureWordsandHighlights(def cardID) {
+	def getScriptureWordsandHighlights(cardID) {
 
-		def msg
-		def x_path // This is the xpath of the (parent) span that contains the (child) spans of the individual words in the scripture text
-		x_path = "//div[@id='${cardID}']/div[3]/div/span/span[2]"
-		println('Retrieving text from ' + cardID)
+		// Get card number if input parameter is a string
+		def cardNumber
+		if (cardID instanceof String) {
+			cardNumber = GlobalVariable.cards_Map_Current.find { it.value.contains('Literal Text') }?.key
+		} else {
+			cardNumber = cardID
+		}
 
+		// This is the xpath of the (parent) span that contains the (child) spans of the individual words in the scripture text
+		def x_path = "/html/body/div[1]/div/main/div/div/div[${cardNumber}]/div/div/div[2]/div/span/span[2]"
 		def words = []
 		def highlights = []
-		//	List<WebElement>  = []
-		List<WebElement> myElements = []
 
 		WebDriver driver = DriverFactory.getWebDriver()
-//		Actions actions = new Actions(driver)
-
 		// verse is the parent span
 		WebElement verse =  driver.findElement(By.xpath(x_path))
-		println(verse.getText() + ' is the text on ' + cardID)
-		
 		// elements is an array of the child spans
 		List<WebElement> elements = verse.findElements(By.tagName('span'))
-		println(elements.size() + ' elements were found on ' + cardID)
 		
-		def lastWord = ''
-		
-		def ol = testForOriginalLanguage(cardID)
-		
-		if (ol) {
-			println('Original Language card')
+		if (cardNumber == 1) {
 			for (element in elements) {
 				def word = element.text
-				if(word.length() >= 1) { // && i < elements.size()/2 ) {
-					def highlighted = element.getAttribute('data-testselected')
-					if (highlighted != null) {
-						words.add(word)
-						highlights.add(highlighted)
-					}
+				if(word.length() >= 1) {
+					words.add(word)
+					List<WebElement> span = element.findElements(By.tagName('span'))
+					highlights.add(span.getAttribute('data-testselected'))
 				}
 			}
 	
 		} else {
-			println('Not an original language card')
+
 			for (element in elements) {
 				def word = element.text
 				if(word.length() >= 1) {
@@ -182,30 +132,8 @@ public class Scripture_Card_NEW {
 					highlights.add(element.getAttribute('data-testselected'))
 				}
 			}
+			return [words, highlights]
 		}
-		
-		return [
-			words,
-			highlights,
-			myElements
-		]
 	}
 
-	
-	@Keyword
-
-	// Returns true if the selected scripture pane is an original language, else returns false
-	def testForOriginalLanguage(def cardID) {
-		def retCode
-		def myKey = GlobalVariable.cards_Map_ID.find{ it.value == cardID }?.key
-		if (myKey.contains('Greek') || myKey.contains('Hebrew')) {
-			retCode = true
-		} else {
-			retCode = false
-		}
-		
-		return retCode
-	}
-	
-		
 }

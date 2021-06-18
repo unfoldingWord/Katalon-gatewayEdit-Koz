@@ -35,9 +35,9 @@ import com.kms.katalon.core.testobject.SelectorMethod
 
 writeFlag = false
 
-WebUI.callTestCase(findTestCase('Components/LogIn'), [:])
+WebUI.callTestCase(findTestCase('Components/LogIn'), [('organization') : 'unfoldingWord'])
 
-WebUI.delay(10)
+WebUI.delay(1)
 
 reference = 'Titus 1:6'
 
@@ -59,81 +59,81 @@ for (def row : (1..rows)) {
 		cardID = 'scripture_card_0'
 		words = ['blameless']
 		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['someone', 'whom', 'no', 'one', 'can', 'criticize']
 		occurrences = [1,1,1,1,1,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 	} else if (row == 2) {
 		cardID = 'scripture_card_0'
 		words = ['children']
 		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['his', 'children', 'his', 'children']
 		occurrences = [1,1,2,2]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 	} else if (row == 3) {
 		cardID = 'scripture_card_0'
 		words = ['faithful']
 		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['must', 'trust', 'in', 'God']
 		occurrences = [3,1,1,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	} else if (row == 4) {
 		cardID = 'scripture_card_0'
 		words = ['accused']
 		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['and', 'people', 'must', 'not', 'consider']
 		occurrences = [1,1,4,1,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	} else if (row == 5) {
 		cardID = 'scripture_card_0'
 		words = ['rebellion']
 		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['disobedient']
 		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	}
 			
 }
@@ -158,161 +158,161 @@ for (def row : (1..rows)) {
 		cardID = 'scripture_card_0'
 		words = ['Abraham']
 		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['Abraham']
 		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 	} else if (row == 2) {
 		cardID = 'scripture_card_0'
 		words = ['became', 'the', 'father']
 		occurrences = [1,1,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['was', 'the', 'father']
 		occurrences = [1,1,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 	} else if (row == 3) {
 		cardID = 'scripture_card_0'
 		words = ['of', 'Isaac']
 		occurrences = [1,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['of', 'Isaac']
 		occurrences = [1,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	} else if (row == 4) {
 		cardID = 'scripture_card_0'
 		words = ['Isaac']
 		occurrences = [2]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['Isaac']
 		occurrences = [2]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	} else if (row == 5) {
 		cardID = 'scripture_card_0'
 		words = ['became', 'the', 'father']
 		occurrences = [2,2,2]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['was', 'the', 'father']
 		occurrences = [2,2,2]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	} else if (row == 6) {
 		cardID = 'scripture_card_0'
 		words = ['of', 'Jacob']
 		occurrences = [2,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['of', 'Jacob']
 		occurrences = [2,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	} else if (row == 7) {
 		cardID = 'scripture_card_0'
 		words = ['Jacob']
 		occurrences = [2]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['Jacob']
 		occurrences = [2]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	} else if (row == 8) {
 		cardID = 'scripture_card_0'
 		words = ['became', 'the', 'father']
 		occurrences = [3,3,3]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['was', 'the', 'father']
 		occurrences = [3,3,3]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	} else if (row == 9) {
 		cardID = 'scripture_card_0'
 		words = ['of', 'Judah']
 		occurrences = [3,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['of', 'Judah']
 		occurrences = [3,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	} else if (row == 10) {
 		cardID = 'scripture_card_0'
 		words = ['brothers']
 		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['of', 'brothers']
 		occurrences = [4,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	}
 	
 }
@@ -337,67 +337,67 @@ for (def row : (1..rows)) {
 		cardID = 'scripture_card_0'
 		words = ['Yahweh']
 		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		wordOL = WebUI.getText(findTestObject('Card_tW_List/text_tWList_Table_Parmed', [('row') : row, ('column') : 2]))
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['Yahweh']
 		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 	} else if (row == 2) {
 		cardID = 'scripture_card_0'
 		words = ['your', 'hand']
 		occurrences = [1,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['your', 'hand']
 		occurrences = [1,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 	} else if (row == 3) {
 		cardID = 'scripture_card_0'
 		words = ['his', 'hand']
 		occurrences = [1,2]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['his', 'hand']
 		occurrences = [1,2]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	} else if (row == 4) {
 		cardID = 'scripture_card_0'
 		words = ['his', 'hand']
 		occurrences = [3,3]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		wordOL = WebUI.getText(findTestObject('Card_tW_List/text_tWList_Table_Parmed', [('row') : row, ('column') : 2]))
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
 		words = ['it']
 		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	}
 }
@@ -422,135 +422,160 @@ for (def row : (1..rows)) {
 		cardID = 'scripture_card_0'
 		words = ['And', 'on','day']
 		occurrences = [1,1,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		wordOL = WebUI.getText(findTestObject('Card_tW_List/text_tWList_Table_Parmed', [('row') : row, ('column') : 2]))
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
-		words = ['day', 'of']
-		occurrences = [1,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		words = ['On', 'the', 'first', 'day', 'of', 'that', 'week']
+		occurrences = [1,1,1,1,1,1,1]
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 	} else if (row == 2) {
 		cardID = 'scripture_card_0'
 		words = ['an', 'assembly', 'of']
 		occurrences = [1,1,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
-		words = ['meeting']
-		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		words = ['a', 'meeting', 'do', 'the', 'same', 'thing']
+		occurrences = [1,1,1,2,1,1]
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 	} else if (row == 3) {
 		cardID = 'scripture_card_0'
 		words = ['holiness']
 		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
-		words = ['on', 'the']
-		occurrences = [1,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		words = ['holy']
+		occurrences = [1]
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	} else if (row == 4) {
 		cardID = 'scripture_card_0'
 		words = ['and', 'on', 'day']
 		occurrences = [2,2,2]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		wordOL = WebUI.getText(findTestObject('Card_tW_List/text_tWList_Table_Parmed', [('row') : row, ('column') : 2]))
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
-		words = ['on', 'those', 'two', 'days']
-		occurrences = [3,1,1,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		words = ['on', 'the', 'seventh', 'day']
+		occurrences = [2,3,1,2]
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	} else if (row == 5) {
 		cardID = 'scripture_card_0'
 		words = ['an', 'assembly', 'of']
 		occurrences = [2,2,2]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
-		words = ['meeting']
-		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		words = ['a', 'meeting', 'do', 'the', 'same', 'thing']
+		occurrences = [1,1,1,2,1,1]
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	} else if (row == 6) {
 		cardID = 'scripture_card_0'
 		words = ['holiness']
 		occurrences = [2]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
-		words = ['a', 'holy']
-		occurrences = [1,1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		words = ['holy']
+		occurrences = [1]
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	} else if (row == 7) {
 		cardID = 'scripture_card_0'
 		words = ['work']
 		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
-		words = ['work']
-		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		words = ['People', 'must', 'work']
+		occurrences = [1,3,1]
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	} else if (row == 8) {
 		cardID = 'scripture_card_0'
 		words = ['person']
 		occurrences = [1]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_1'
 		words = [olWord]
 		occurrences = [olOccurrence]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 		
 		cardID = 'scripture_card_2'
-		words = ['you']
-		occurrences = [3]
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences, writeFlag)
+		words = ['food', 'to', 'eat']
+		occurrences = [1,1,1]
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.testForHighlighting'(cardID, words, occurrences, writeFlag)
 	
 	}
 }
 
+// Testing issue #147
+reference = 'mat 1:2'
+
+CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.setScriptureReference'(reference)
+
+WebUI.delay(2)
+
+WebUI.mouseOver(findTestObject('Page_Main/menu_card_Parmed',[('resource') : 'resource_card_ta']))
+
+WebUI.scrollToPosition(0, 900)
+
+WebUI.delay(1)
+
+WebUI.scrollToElement(findTestObject('Card_tW_List/text_tWList_Table_Parmed', [('row') : 10, ('column') : 2]),1)
+
+WebUI.delay(1)
+
+WebUI.click(findTestObject('Card_tW_List/text_tWList_Table_Parmed', [('row') : 10, ('column') : 2]))
+
+WebUI.delay(1)
+
+found = WebUI.verifyImagePresent(findTestObject('Card_tW_List/td_brother'),FailureHandling.OPTIONAL)
+
+msg = 'ERROR: The clicked on tWL is not visible after being clicked, issue #147.'
+CustomKeywords.'unfoldingWord_Keywords.SendMessage.SendFailMessage'(msg)
 
 GlobalVariable.scriptRunning = false
 

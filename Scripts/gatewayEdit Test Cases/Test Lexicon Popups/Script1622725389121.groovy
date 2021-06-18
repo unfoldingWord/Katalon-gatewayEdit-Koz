@@ -31,7 +31,7 @@ WebUI.callTestCase(findTestCase('Components/LogIn'), [:])
 WebUI.delay(1)
 
 for (def ref : refs) {
-    CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.setScriptureReference'(ref)
+    CustomKeywords.'x_Archive.Scripture_Card.setScriptureReference'(ref)
 
 	olTitle = WebUI.getText(findTestObject('Object Repository/Page_Main/text_Card_Title_Parmed-ID', [('cardID') : scriptureCards[1]]))
 	
@@ -77,7 +77,7 @@ def testForPopups(ref, card) {
 	}
 	
 	println('Getting words on ' + card)
-    (words, highlights, elements) = CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.getScriptureWordsandHighlights'(card)
+    (words, highlights, elements) = CustomKeywords.'x_Archive.Scripture_Card.getScriptureWordsandHighlights'(card)
 	
 	words.each {
 		println(it)

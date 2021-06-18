@@ -44,7 +44,7 @@ refs.each({ ref ->
 
 		WebUI.clickOffset(findTestObject(myElement), 0, -20)
 		
-        (book, chapter, verse) = CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.getScriptureReference'()
+        (book, chapter, verse) = CustomKeywords.'x_Archive.Scripture_Card.getScriptureReference'()
 
 		if (ref.length() > 3) {
 			refBook = ref.substring(0,3)
@@ -86,7 +86,7 @@ refs.each({ ref ->
 startRef = 'rom 3:4'
 expectedRef = ['']
 
-CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.setScriptureReference'(startRef)
+CustomKeywords.'x_Archive.Scripture_Card.setScriptureReference'(startRef)
 GlobalVariable.scriptRunning = false
 
 WebUI.closeBrowser()

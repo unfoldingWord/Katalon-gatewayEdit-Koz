@@ -75,7 +75,7 @@ for (user in users) {
 		
 		reference = refs[ref]
 		
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.setScriptureReference'(reference[0], reference[1], reference[2])
+		CustomKeywords.'x_Archive.Scripture_Card.setScriptureReference'(reference[0], reference[1], reference[2])
 		
 		if (myUser == 0) {
 			reference0 = reference
@@ -403,7 +403,7 @@ def testByUserOrg(user, org, markdowns, fontSizes, columnsMap, columns, referenc
 	
 	WebUI.callTestCase(findTestCase('Components/LogIn'), [('user') : user, ('organization'): org])
 	
-	(book, chapter, verse) = CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.getScriptureReference'()
+	(book, chapter, verse) = CustomKeywords.'x_Archive.Scripture_Card.getScriptureReference'()
 	
 	refNew = book + ' ' + chapter + ':' + verse
 	

@@ -1,28 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GlobalVariableEntities>
    <description></description>
-   <name>tCC Production</name>
+   <name>gE Production</name>
    <tag></tag>
    <defaultProfile>false</defaultProfile>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'create.translationcore.com'</initValue>
+      <initValue>'https://gateway-edit.netlify.app'</initValue>
       <name>url</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'tcc001'</initValue>
+      <initValue>'tc01'</initValue>
       <name>user1Name</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'tcc001'</initValue>
+      <initValue>'+0+nfRaS+QU='</initValue>
       <name>user1Password</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
       <initValue>'tc111'</initValue>
       <name>badPassword</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'test_org'</initValue>
+      <name>organization</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'en'</initValue>
+      <name>langCode</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>version</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
@@ -33,21 +48,6 @@
       <description></description>
       <initValue>'tc02'</initValue>
       <name>userReadOnlyPassword</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>findTestObject('Page_tC Create/listOrg_translate_test')</initValue>
-      <name>organization</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>'en -'</initValue>
-      <name>langCode</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>''</initValue>
-      <name>version</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
@@ -143,5 +143,25 @@
       <description></description>
       <initValue>''</initValue>
       <name>timings</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>[(1) : 'Scripture_1', (2) : 'Scripture_2', (3) : 'Scripture_3', (4) : 'tN', (5) : 'tA', (6) : 'tW_List', (7) : 'tW_Article', (8) : 'tQ']</initValue>
+      <name>cards_Map_Base</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>[:]</initValue>
+      <name>cards_Map_Current</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>[:]</initValue>
+      <name>cards_Map_ID</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>tNFormat</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

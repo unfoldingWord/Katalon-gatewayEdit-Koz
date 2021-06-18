@@ -22,43 +22,47 @@ import org.openqa.selenium.WebElement as WebElement
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import groovy.time.*
 
-myHighlights = [false,
-false,
-false,
-false,
-false,
-false,
-false,
-false,
-false,
-false,
-false,
-true,
-true,
-true,
-false,
-false,
-false,
-false,
-false,
-false,
-false,
-false,
-false,
-false,
-false,
-false,
-false,
-false,
-false,
-false,
-]
-myHighlights.each {
-	println(it)
-}
-i = 0
-while (i < myHighlights.size()) {
-	Boolean highlight = myHighlights[i]
-	println('highlight  ' + i + ' is ' + highlight)
-	i ++
-}
+
+WebUI.callTestCase(findTestCase('Components/LogIn'), [:])
+
+WebUI.delay(1)
+
+reference = 'mat 1:2'
+
+CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.setScriptureReference'(reference)
+
+WebUI.delay(2)
+
+// Should not be found since it's not visible
+found = WebUI.verifyImagePresent(findTestObject('Card_tW_List/td_brother'),FailureHandling.OPTIONAL)
+
+println('Image found before scrolling is ' + found)
+
+WebUI.delay(1)
+
+WebUI.mouseOver(findTestObject('Page_Main/menu_card_Parmed',[('resource') : 'resource_card_ta']))
+
+WebUI.scrollToPosition(0, 900)
+
+WebUI.delay(1)
+
+WebUI.scrollToElement(findTestObject('Card_tW_List/text_tWList_Table_Parmed', [('row') : 10, ('column') : 2]),1)
+
+WebUI.delay(1)
+
+// Don't expect it to be found since the font is non-bold and black
+found = WebUI.verifyImagePresent(findTestObject('Card_tW_List/td_brother'),FailureHandling.OPTIONAL)
+
+println('Image found before clicking is ' + found)
+
+WebUI.delay(1)
+
+WebUI.click(findTestObject('Card_tW_List/text_tWList_Table_Parmed', [('row') : 10, ('column') : 2]))
+
+WebUI.delay(1)
+
+// Expect it to be found because it should be a very close match, font is bold and blue
+found = WebUI.verifyImagePresent(findTestObject('Card_tW_List/td_brother'),FailureHandling.OPTIONAL)
+
+println('Image found after clicking is ' + found)
+

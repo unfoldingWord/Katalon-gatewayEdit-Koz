@@ -46,7 +46,7 @@ refs.each({ ref ->
 
 		WebUI.clickOffset(findTestObject(myElement), 0, -20)
 		
-        (book, chapter, verse, reference) = CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.getScriptureReference'()
+        (book, chapter, verse, reference) = CustomKeywords.'x_Archive.Scripture_Card.getScriptureReference'()
 
 		if (ref.length() > 3) {
 			refBook = ref.substring(0,3)
@@ -87,9 +87,9 @@ refs.each({ ref ->
 /////// Test navigation by setting book, chapter, verse \\\\\\\
 refs.each { ref ->
 
-	CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.setScriptureReference'(ref)
+	CustomKeywords.'x_Archive.Scripture_Card.setScriptureReference'(ref)
 
-	(book, chapter, verse, reference ) = CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.getScriptureReference'()
+	(book, chapter, verse, reference ) = CustomKeywords.'x_Archive.Scripture_Card.getScriptureReference'()
 	
 	if (ref.indexOf(':') < 0) {
 		ref = ref + ':1'
@@ -110,9 +110,9 @@ startRef = 'rom 3:4'
 actions = ['Next_Verse','Next_Verse','Next_Chapter','Next_Chapter','Previous_Verse','Previous_Verse','Previous_Chapter','Previous_Chapter',
   	'Previous_Chapter','Previous_Verse','Previous_Verse','Previous_Chapter']
 
-CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.setScriptureReference'(startRef)
+CustomKeywords.'x_Archive.Scripture_Card.setScriptureReference'(startRef)
 
-(book, chapter, verse, reference ) = CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.getScriptureReference'()
+(book, chapter, verse, reference ) = CustomKeywords.'x_Archive.Scripture_Card.getScriptureReference'()
 
 if (reference != startRef) {
 	msg = 'Test failed because the STARTING reference is ' + startRef + ', but the actual reference is ' + reference +
@@ -126,7 +126,7 @@ if (reference != startRef) {
 		
 		WebUI.click(findTestObject('Blue_Banners/button_' + action))
 		
-		(book, chapter, verse, reference ) = CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.getScriptureReference'()
+		(book, chapter, verse, reference ) = CustomKeywords.'x_Archive.Scripture_Card.getScriptureReference'()
 		
 		if (reference != refs[i]) {
 			msg = 'Test failed because the EXPECTED reference is ' + refs[i] + ' and the actual reference is ' + reference + '.'

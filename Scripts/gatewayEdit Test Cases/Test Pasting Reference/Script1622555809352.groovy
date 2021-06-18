@@ -55,7 +55,7 @@ refs.each({
 
 		WebUI.clickOffset(findTestObject(myElement), 0, -20)
 		
-        (book, chapter, verse) = CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.getScriptureReference'()
+        (book, chapter, verse) = CustomKeywords.'x_Archive.Scripture_Card.getScriptureReference'()
 
         // If no verse is specified or verse us blank, verse should be set to verse 1
         if (it.size() < 3) {

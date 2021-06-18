@@ -25,12 +25,12 @@ retValue = CustomKeywords.'unfoldingWord_Keywords.Resources_Layout.getCardMap'()
 
 WebUI.delay(5)
 
-(ref, text) = CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.getScriptureVerse'('Literal Text')
+(ref, text) = CustomKeywords.'x_Archive.Scripture_Card.getScriptureVerse'('Literal Text')
 
 println('return value is ' + ref + ':' + text)
 
-//(words, highlights) = CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.getScriptureWordsandHighlights'(1)
-(words, highlights) = CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.getScriptureWordsandHighlights'('Literal Text')
+//(words, highlights) = CustomKeywords.'x_Archive.Scripture_Card.getScriptureWordsandHighlights'(1)
+(words, highlights) = CustomKeywords.'x_Archive.Scripture_Card.getScriptureWordsandHighlights'('Literal Text')
 
 
 

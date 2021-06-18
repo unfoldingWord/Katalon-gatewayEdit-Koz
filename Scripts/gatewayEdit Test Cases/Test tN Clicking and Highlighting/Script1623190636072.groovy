@@ -27,6 +27,9 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import com.kms.katalon.core.webui.driver.DriverFactory
 
+// Test clicking on the next/previous chevrons on the tN card and verify highlighting is as expected
+// Tests issues 90 and 176
+
 blue = 'rgba(56, 173, 223, 1)'
 
 scriptureCards = ['scripture_card_0', 'scripture_card_1', 'scripture_card_2']
@@ -61,9 +64,9 @@ for (org in orgs) {
 	
 	reference = 'Titus 1:6'
 	
-	CustomKeywords.'unfoldingWord_Keywords.Scripture_Card.setScriptureReference'(reference)
+	CustomKeywords.'x_Archive.Scripture_Card.setScriptureReference'(reference)
 	
-	//Testing issue #90 and #177
+	//Testing issue #90 and #176
 	// Verify highlights are as expected when clicking on tN card chevrons
 	
 	check = '2 of 5'
@@ -72,17 +75,17 @@ for (org in orgs) {
 		cardID = 'scripture_card_0'
 		words = ['if', 'anyone', 'is', 'blameless']
 		occurrences = [1,1,1,1]	
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_OLD.testForHighlighting'(cardID, words, occurrences)
 		
 		cardID = 'scripture_card_1'
 		words = ['εἴ', 'τίς', 'ἐστιν', 'ἀνέγκλητος']
 		occurrences = [1,1,1,1]		
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences)//		testForHighlighting(cardID, words, occurrences)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_OLD.testForHighlighting'(cardID, words, occurrences)//		testForHighlighting(cardID, words, occurrences)
 		
 		cardID = 'scripture_card_2'
 		words = ['Now', 'every', 'elder', 'must', 'be', 'someone', 'whom', 'no', 'one', 'can', 'criticize']
 		occurrences = [1,1,1,1,1,1,1,1,1,1,1]	
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_OLD.testForHighlighting'(cardID, words, occurrences)
 	}
 		
 	check = '3 of 5'
@@ -91,17 +94,17 @@ for (org in orgs) {
 		cardID = 'scripture_card_0'
 		words = ['blameless']
 		occurrences = [1]	
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_OLD.testForHighlighting'(cardID, words, occurrences)
 		
 		cardID = 'scripture_card_1'
 		words = ['ἀνέγκλητος']
 		occurrences = [1]		
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences)//		testForHighlighting(cardID, words, occurrences)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_OLD.testForHighlighting'(cardID, words, occurrences)//		testForHighlighting(cardID, words, occurrences)
 		
 		cardID = 'scripture_card_2'
 		words = ['someone', 'whom', 'no', 'one', 'can', 'criticize']
 		occurrences = [1,1,1,1,1,1]	
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_OLD.testForHighlighting'(cardID, words, occurrences)
 	}
 		
 	check = '4 of 5'
@@ -110,17 +113,17 @@ for (org in orgs) {
 		cardID = 'scripture_card_0'
 		words = ['the', 'husband', 'of', 'one', 'wife']
 		occurrences = [1,1,1,1,1]	
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_OLD.testForHighlighting'(cardID, words, occurrences)
 		
 		cardID = 'scripture_card_1'
 		words = ['μιᾶς', 'γυναικὸς', 'ἀνήρ']
 		occurrences = [1,1,1]		
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences)//		testForHighlighting(cardID, words, occurrences)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_OLD.testForHighlighting'(cardID, words, occurrences)//		testForHighlighting(cardID, words, occurrences)
 		
 		cardID = 'scripture_card_2'
 		words = ['He', 'must', 'also', 'have', 'just', 'one', 'wife']
 		occurrences = [1,2,1,1,1,2,1]	
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_OLD.testForHighlighting'(cardID, words, occurrences)
 	}
 		
 	check = '5 of 5'
@@ -129,17 +132,17 @@ for (org in orgs) {
 		cardID = 'scripture_card_0'
 		words = ['faithful', 'children']
 		occurrences = [1,1]	
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_OLD.testForHighlighting'(cardID, words, occurrences)
 		
 		cardID = 'scripture_card_1'
 		words = ['τέκνα', 'πιστά']
 		occurrences = [1,1]		
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences)//		testForHighlighting(cardID, words, occurrences)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_OLD.testForHighlighting'(cardID, words, occurrences)//		testForHighlighting(cardID, words, occurrences)
 		
 		cardID = 'scripture_card_2'
 		words = ['his', 'children', 'must', 'trust', 'in', 'God', 'his', 'children' ]
 		occurrences = [1,1,3,1,1,1,2,2]	
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_OLD.testForHighlighting'(cardID, words, occurrences)
 	}
 		
 	check = '1 of 5'
@@ -148,17 +151,17 @@ for (org in orgs) {
 		cardID = 'scripture_card_0'
 		words = []
 		occurrences = []	
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_OLD.testForHighlighting'(cardID, words, occurrences)
 		
 		cardID = 'scripture_card_1'
 		words = []
 		occurrences = []		
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences)//		testForHighlighting(cardID, words, occurrences)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_OLD.testForHighlighting'(cardID, words, occurrences)//		testForHighlighting(cardID, words, occurrences)
 		
 		cardID = 'scripture_card_2'
 		words = []
 		occurrences = []	
-		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_NEW.testForHighlighting'(cardID, words, occurrences)
+		CustomKeywords.'unfoldingWord_Keywords.Scripture_Card_OLD.testForHighlighting'(cardID, words, occurrences)
 	}
 				
 }
