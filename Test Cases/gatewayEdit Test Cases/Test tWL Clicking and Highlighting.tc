@@ -2,7 +2,7 @@
 <TestCaseEntity>
    <description></description>
    <name>Test tWL Clicking and Highlighting</name>
-   <tag></tag>
+   <tag>Tests issues 90, 147</tag>
    <comment></comment>
    <testCaseGuid>8234a9a2-444f-4727-a15f-893cc1c59c93</testCaseGuid>
 </TestCaseEntity>

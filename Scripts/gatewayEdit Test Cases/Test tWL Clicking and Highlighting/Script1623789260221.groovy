@@ -32,6 +32,7 @@ import com.kms.katalon.core.testobject.SelectorMethod
 
 
 // Click on tWL links and verify the highlights are as expected, and tW Article is updated correctly
+// Tests specifically for issues 90 and 147
 
 writeFlag = false
 
