@@ -1,0 +1,54 @@
+{
+  "keywordFileContentHash": "98A931EBE4F85FF7EACA123FCE9FEA7F",
+  "keywordClasses": [
+    {
+      "name": "unfoldingWord_Keywords.Resources_Layout",
+      "keywordMethods": [
+        {
+          "name": "getCardMap",
+          "parameters": [],
+          "javadoc": ""
+        },
+        {
+          "name": "getCardIDsByTitle",
+          "parameters": [
+            {
+              "name": "text",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.Object",
+                "unresolvedClassName": "java.lang.Object",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": true,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        },
+        {
+          "name": "getCardTitleByID",
+          "parameters": [
+            {
+              "name": "cardID",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.Object",
+                "unresolvedClassName": "java.lang.Object",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": true,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

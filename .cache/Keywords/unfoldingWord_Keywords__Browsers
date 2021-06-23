@@ -1,0 +1,35 @@
+{
+  "keywordFileContentHash": "DF27B1F278D56EAACE82B5A91595F35E",
+  "keywordClasses": [
+    {
+      "name": "unfoldingWord_Keywords.Browsers",
+      "keywordMethods": [
+        {
+          "name": "openNewTab",
+          "parameters": [
+            {
+              "name": "browser",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.Object",
+                "unresolvedClassName": "java.lang.Object",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": true,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        },
+        {
+          "name": "openNewTab",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

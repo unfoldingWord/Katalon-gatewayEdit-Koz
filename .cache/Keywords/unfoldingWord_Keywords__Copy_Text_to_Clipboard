@@ -1,0 +1,30 @@
+{
+  "keywordFileContentHash": "223EF79B8122BE5723FDD27E48A6F4B6",
+  "keywordClasses": [
+    {
+      "name": "unfoldingWord_Keywords.Copy_Text_to_Clipboard",
+      "keywordMethods": [
+        {
+          "name": "copyText",
+          "parameters": [
+            {
+              "name": "myText",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.Object",
+                "unresolvedClassName": "java.lang.Object",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": true,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

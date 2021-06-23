@@ -1,0 +1,16 @@
+{
+  "keywordFileContentHash": "1AF28E6F798E2325E21F37F60609ABF1",
+  "keywordClasses": [
+    {
+      "name": "unfoldingWord_Keywords.TWL_Card",
+      "keywordMethods": [
+        {
+          "name": "getTWLValues",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

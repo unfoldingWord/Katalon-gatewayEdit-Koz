@@ -16,9 +16,28 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.callTestCase(findTestCase('Components/LogIn'), [:])
+import org.openqa.selenium.WebDriver as WebDriver
+import org.openqa.selenium.WebElement as WebElement
+import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 
-WebUI.delay(1)
+import org.openqa.selenium.remote.CommandExecutor
+//import org.openqa.selenium.remote.Response
 
-WebUI.clickOffset(findTestObject('Card_Scripture/menu_Scripture_Card_2'), 5, -130)
+System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
 
+//ChromeDriver driver = new ChromeDriver();
+//driver = new WebDriver();
+WebDriver driver = DriverFactory.getWebDriver()
+
+CommandExecutor executor = driver.getCommandExecutor();
+		
+//Set the conditions
+Map<String, Object> map = new HashMap<String, Object>();
+map.put("offline", false);
+map.put("latency", 5);
+map.put("download_throughput", 5000);
+map.put("upload_throughput", 5000);
+
+//Response response = executor.execute(new Command(driver.getSessionId(),"setNetworkConditions", ImmutableMap.of("network_conditions", ImmutableMap.copyOf(map))));
+
+driver.get("http://google.com");

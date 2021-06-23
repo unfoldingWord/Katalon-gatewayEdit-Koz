@@ -1,0 +1,45 @@
+{
+  "keywordFileContentHash": "959F983F320C9FD0554332A5C895EEAC",
+  "keywordClasses": [
+    {
+      "name": "unfoldingWord_Keywords.SAVED_Work_with_Settings_Card",
+      "keywordMethods": [
+        {
+          "name": "getFontSize",
+          "parameters": [],
+          "javadoc": ""
+        },
+        {
+          "name": "setFontSize",
+          "parameters": [
+            {
+              "name": "value",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "int",
+                "unresolvedClassName": "int",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": true,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        },
+        {
+          "name": "getColumnsList",
+          "parameters": [],
+          "javadoc": ""
+        },
+        {
+          "name": "getColumnStates",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

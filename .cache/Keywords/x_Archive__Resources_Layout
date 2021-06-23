@@ -1,0 +1,16 @@
+{
+  "keywordFileContentHash": "1D1D4D988FD1FC805F62371EF1A3C2F5",
+  "keywordClasses": [
+    {
+      "name": "x_Archive.Resources_Layout",
+      "keywordMethods": [
+        {
+          "name": "getCardMap",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}
