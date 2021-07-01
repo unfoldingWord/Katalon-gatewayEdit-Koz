@@ -3,10 +3,10 @@
    <description></description>
    <name>gE Release</name>
    <tag></tag>
-   <defaultProfile>false</defaultProfile>
+   <defaultProfile>true</defaultProfile>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'https://develop--gateway-edit.netlify.app'</initValue>
+      <initValue>'https://release-v0-9-0--gateway-edit.netlify.app/'</initValue>
       <name>url</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>

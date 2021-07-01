@@ -1,4 +1,5 @@
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
@@ -20,43 +21,17 @@ import org.openqa.selenium.Keys as Keys
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import com.kms.katalon.core.webui.driver.DriverFactory
-import org.openqa.selenium.remote.DesiredCapabilities
 import org.openqa.selenium.chrome.ChromeDriver
-
-
-//import org.openqa.selenium.webdriver.common.desired_capabilities.DesiredCapabilities
-//from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-//selenium.webdriver.common.desired_capabilities.DesiredCapabilities[source]
-
-//WebUI.openBrowser('google.com')
-
-//WebDriver driver = DriverFactory.getWebDriver()
-conditions = ["latency": 0, "throughput": 0, "offline": true]
-params = [network_conditions: [latency   : 0, throughput: 0]]
-
 
 System.setProperty("webdriver.chrome.driver", DriverFactory.getChromeDriverPath())
 WebDriver driver = new ChromeDriver()
 
-//driver.set_network_conditions(
-//	{offline=false}) //,
-//	latency=5,  //# additional latency (ms)
-//	download_throughput=5 * 1024,  //# maximal throughput
-//	upload_throughput=5 * 1024)  //# maximal throughput
+//from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-//System.setProperty("webdriver.gecko.driver","/Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/drivers/firefox_mac/geckodriver");
 
-//System.setProperty("webdriver.chrome.driver","/Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/drivers/chromedriver_mac/chromedriver")
-//driver = new ChromeDriver();
-driver.get("https://google.com")
-driver.set_network_conditions(offline=true, latency=5, throughput=500 * 1024)
-//driver.set_network_conditions(params)
-//myConditions = driver.get_network_conditions()
-//myConditions = driver.getNetworkConditions()
-//println(myConditions)
-//"latency": 0, "throughput": 0, "offline": true)
-
-//driver.set_network_conditions(offline=True)
-
-//WebUI.openBrowser('google.com')
-
+networkConditions = new ChromeNetworkConditions();
+networkConditions.Latency = new TimeSpan(150);
+networkConditions.IsOffline = false;
+networkConditions.DownloadThroughput = 120 * 1024;
+networkConditions.UploadThroughput = 150 * 1024;
+driver.NetworkConditions = networkConditions;
